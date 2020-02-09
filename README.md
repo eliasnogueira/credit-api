@@ -1,5 +1,8 @@
-# Credit Restriction API
+# Combined Credit API
 This project was created to start the initial steps with test automation for a REST API using RestAssured.
+It's a combination of the following projects to facilitate the test automation:
+* [credit-restriction-api](https://github.com/eliasnogueira/credit-restriction-api)
+* [credit-simulator-api](https://github.com/eliasnogueira/credit-simulator-api)
 
 # Required software
 * Java JDK 11+
@@ -11,7 +14,7 @@ This project was created to start the initial steps with test automation for a R
 First, clone or download this project. After:
 1. Navigate to the project folder using the Terminal / Command prompt
 2. Execute the following: `mvn spring-boot:run`
-3. Wait until you see something like this: _Started CreditSimulatorApplication in 6.53 seconds_
+3. Wait until you see something like this: _Application has started! Happy tests!_
 4. The API is ready and listen all requests on `http://localhost:8088`
 
 ## How to change the port
