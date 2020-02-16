@@ -41,11 +41,11 @@ public class SimulatorDto {
     private Long id;
 
     @ApiModelProperty(required = true, example = "97093236014",
-        notes = "Nome Name cannot be empty")
+        notes = "CPF cannot be empty")
     private String cpf;
 
     @ApiModelProperty(position = 1, required = true, example = "John Doe",
-        notes = "CPF cannot be empty")
+        notes = "Name cannot be empty")
     private String name;
 
     @ApiModelProperty(position = 2, required = true, example = "email@email.com",
