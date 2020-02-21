@@ -62,7 +62,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping("/api/v1/simulations")
-@Api(value = "/simulations", tags = "Simulator")
+@Api(value = "/simulations", tags = "Simulations")
 public class SimulatorController {
 
     private final SimulatorRepository repository;
