@@ -10,7 +10,7 @@
 
     <properties>
         <springfox.version>2.9.2</springfox.version>
-        <modelmapper.version>2.3.6</modelmapper.version>
+        <modelmapper.version>2.3.7</modelmapper.version>
         <lombok.version>1.18.10</lombok.version>
         <hibernate-jpamodelgen.version>5.4.10.Final</hibernate-jpamodelgen.version>
     </properties>
