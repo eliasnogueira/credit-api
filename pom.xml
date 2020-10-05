@@ -4,22 +4,27 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.eliasogueira.credit</groupId>
-    <artifactId>credit-restriction</artifactId>
-    <version>1.1-SNAPSHOT</version>
-
-    <properties>
-        <springfox.version>2.9.2</springfox.version>
-        <modelmapper.version>2.3.8</modelmapper.version>
-        <lombok.version>1.18.12</lombok.version>
-        <hibernate-jpamodelgen.version>6.0.0.Alpha6</hibernate-jpamodelgen.version>
-    </properties>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.4.RELEASE</version>
     </parent>
+
+    <groupId>com.eliasogueira.credit</groupId>
+    <artifactId>credit-restriction</artifactId>
+    <version>1.2-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java-compiler.version>11</java-compiler.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+
+        <springfox.version>2.9.2</springfox.version>
+        <modelmapper.version>2.3.8</modelmapper.version>
+        <lombok.version>1.18.12</lombok.version>
+        <hibernate-jpamodelgen.version>6.0.0.Alpha6</hibernate-jpamodelgen.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -86,10 +91,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>11</source>
-                    <target>11</target>
+                    <source>${java-compiler.version}</source>
+                    <target>${java-compiler.version}</target>
                 </configuration>
             </plugin>
         </plugins>
