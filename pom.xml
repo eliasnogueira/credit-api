@@ -22,7 +22,7 @@
 
         <springfox.version>2.9.2</springfox.version>
         <modelmapper.version>2.3.9</modelmapper.version>
-        <lombok.version>1.18.16</lombok.version>
+        <lombok.version>1.18.18</lombok.version>
         <hibernate-jpamodelgen.version>6.0.0.Alpha6</hibernate-jpamodelgen.version>
     </properties>
 
