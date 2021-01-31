@@ -36,7 +36,7 @@ import lombok.NoArgsConstructor;
 @ApiModel(value = "Message v2")
 public class MessageDto {
 
-    @ApiModelProperty(position = 0, required = true, example = "CPF 999999999 not found")
+    @ApiModelProperty(required = true, example = "CPF 999999999 not found")
     private String returnMessage;
 
     @ApiModelProperty(position = 1, required = true, example = "Judicial")
