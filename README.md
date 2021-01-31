@@ -15,7 +15,6 @@ First, clone or download this project. After:
 1. Navigate to the project folder using the Terminal / Command prompt
 2. Execute the following: `mvn spring-boot:run`
 3. Wait until you see something like this: _Application has started! Happy tests!_
-4. The API is ready and listen all requests on `http://localhost:8088`
 
 ## How to change the port
 The default port is `8088`.
