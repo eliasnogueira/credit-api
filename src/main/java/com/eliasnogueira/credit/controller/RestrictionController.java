@@ -28,13 +28,18 @@ import com.eliasnogueira.credit.dto.v1.MessageDto;
 import com.eliasnogueira.credit.entity.Restriction;
 import com.eliasnogueira.credit.exception.v2.RestrictionException;
 import com.eliasnogueira.credit.service.RestrictionService;
-import io.swagger.annotations.*;
-import java.text.MessageFormat;
-import java.util.Optional;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.text.MessageFormat;
+import java.util.Optional;
 
 @RestController
 @Api(value = "Restrictions", tags = "Restrictions")
