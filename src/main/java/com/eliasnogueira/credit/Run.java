@@ -32,10 +32,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EnableJpaRepositories
 @Log4j2
-public class CreditApiApplication {
+public class Run {
 
     public static void main(String[] args) {
-        SpringApplication.run(CreditApiApplication.class, args);
+        SpringApplication.run(Run.class, args);
         log.info("Application has started! Happy tests!");
     }
 }
