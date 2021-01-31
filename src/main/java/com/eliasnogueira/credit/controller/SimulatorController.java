@@ -42,7 +42,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 import javax.validation.Valid;
-import lombok.SneakyThrows;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -78,7 +77,6 @@ public class SimulatorController {
         @ApiResponse(code = 200, message = "Simulations found", response = SimulatorDto.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Name not found")
     })
-    @SneakyThrows
     List<Simulator> getSimulator(@ApiParam(value = "Search a simulation by a person name")
         @RequestParam(name = "name", required = false) String name) {
         List<Simulator> simulationsFound;
