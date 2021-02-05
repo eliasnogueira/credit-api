@@ -19,7 +19,14 @@ First, clone or download this project. After:
 ## How to change the port
 The default port is `8088`.
 If you want to change the port to another one, execute the following command, replacing the text `<NEW_PORT>`.
+
+Changing the port running the application using the jar file
+```shell
+java -jar credit-api-VERSION.jar --server-port=8089
 ```
+
+Changing the port running the application using mvn
+```shell
 mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=<NEW_PORT>
 ```
 
