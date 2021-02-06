@@ -131,7 +131,7 @@ public class SimulationController {
     @PutMapping("/{cpf}")
     @ApiOperation(value = "Update a simulation by a given CPF")
     @ApiResponses({
-        @ApiResponse(code = 200, message = "Simulation updated successfully", response = SimulationDto.class),
+        @ApiResponse(code = 200, message = "Simulation updated successfully", response = Simulation.class),
         @ApiResponse(code = 404, message = "Simulation not found"),
         @ApiResponse(code = 409, message = "CPF already exists")
     })
