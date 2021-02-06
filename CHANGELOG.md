@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Renamed all the classes replacing Simulator by Simulation
-- Changed the Api response example for the GET endpoints on SimulationController  
+- Changed the Api response example for the GET and PUT endpoints on SimulationController  
 
 ## [1.4.2] - 05-02-2021
 
