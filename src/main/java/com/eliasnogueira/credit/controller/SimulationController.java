@@ -77,7 +77,7 @@ public class SimulationController {
         @ApiResponse(code = 200, message = "Simulations found", response = Simulation.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Name not found")
     })
-    List<Simulation> getSimulator(@ApiParam(value = "Search a simulation by a person name")
+    public List<Simulation> getSimulator(@ApiParam(value = "Search a simulation by a person name")
         @RequestParam(name = "name", required = false) String name) {
         List<Simulation> simulationsFound;
 
@@ -99,7 +99,7 @@ public class SimulationController {
         @ApiResponse(code = 200, message = "Simulations found", response = Simulation.class),
         @ApiResponse(code = 404, message = "Simulation not found")
     })
-    ResponseEntity<Simulation> one(@ApiParam(value = "CPF to query an existing simulation", required = true)
+    public ResponseEntity<Simulation> one(@ApiParam(value = "CPF to query an existing simulation", required = true)
         @PathVariable String cpf) {
         return repository.findByCpf(cpf).
             map(simulation -> ResponseEntity.ok().body(simulation)).
@@ -116,9 +116,9 @@ public class SimulationController {
         @ApiResponse(code = 422, message = "Missing information", response = ValidationDto.class),
         @ApiResponse(code = 409, message = "CPF already exists")
     })
-    ResponseEntity<?> newSimulator(@ApiParam(value = "Simulation object", required = true)
-        @Valid @RequestBody SimulationDto simulator) {
-        Simulation createdSimulation = repository.save(new ModelMapper().map(simulator, Simulation.class));
+    public ResponseEntity<URI> newSimulator(@ApiParam(value = "Simulation object", required = true)
+        @Valid @RequestBody SimulationDto simulation) {
+        Simulation createdSimulation = repository.save(new ModelMapper().map(simulation, Simulation.class));
         URI location = ServletUriComponentsBuilder.
             fromCurrentRequest().
             path("/{cpf}").
@@ -135,13 +135,13 @@ public class SimulationController {
         @ApiResponse(code = 404, message = "Simulation not found"),
         @ApiResponse(code = 409, message = "CPF already exists")
     })
-    Simulation updateSimulator(
+    public Simulation updateSimulator(
         @ApiParam(value = "Simulation object with data to update", required = true)
-            @RequestBody SimulationDto simulator,
+            @RequestBody SimulationDto simulation,
         @ApiParam(value = "CPF to query an existing simulation", required = true)
             @PathVariable String cpf) {
         return update(new ModelMapper().
-            map(simulator, Simulation.class), cpf).
+            map(simulation, Simulation.class), cpf).
             orElseThrow(() -> new SimulationException(MessageFormat.format(CPF_NOT_FOUND, cpf)));
     }
 
@@ -152,7 +152,7 @@ public class SimulationController {
         @ApiResponse(code = 204, message = "Simulation deleted successfully"),
         @ApiResponse(code = 404, message = "Simulation not found")
     })
-    void delete(@ApiParam(value = "CPF to query an existing simulation", required = true)
+    public void delete(@ApiParam(value = "CPF to query an existing simulation", required = true)
         @PathVariable String cpf) {
         if (repository.findByCpf(cpf).isEmpty()) throw new SimulationException(MessageFormat.format(CPF_NOT_FOUND, cpf));
 

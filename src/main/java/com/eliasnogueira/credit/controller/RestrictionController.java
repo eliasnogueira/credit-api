@@ -58,7 +58,7 @@ public class RestrictionController {
             @ApiResponse(code = 200, message = "Restriction found", response = MessageDto.class)
     })
     @GetMapping("/api/v1/restrictions/{cpf}")
-    ResponseEntity<Void> one(@ApiParam(value = "CPF to query", required = true) @PathVariable String cpf) {
+    public ResponseEntity<Void> one(@ApiParam(value = "CPF to query", required = true) @PathVariable String cpf) {
         Optional<Restriction> restrictionOptional = restrictionService.findByCpf(cpf);
 
         if (restrictionOptional.isPresent()) {
@@ -75,7 +75,7 @@ public class RestrictionController {
             @ApiResponse(code = 200, message = "Restriction found", response = com.eliasnogueira.credit.dto.v2.MessageDto.class)
     })
     @GetMapping("/api/v2/restrictions/{cpf}")
-    ResponseEntity<Void> oneV2(@ApiParam(value = "CPF to query", required = true) @PathVariable String cpf) {
+    public ResponseEntity<Void> oneV2(@ApiParam(value = "CPF to query", required = true) @PathVariable String cpf) {
         Optional<Restriction> restrictionOptional = restrictionService.findByCpf(cpf);
 
         if (restrictionOptional.isPresent()) {
