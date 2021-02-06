@@ -2,7 +2,7 @@
 This project was created to start the initial steps with test automation for a REST API using RestAssured.
 It's a combination of the following projects to facilitate the test automation:
 * [credit-restriction-api](https://github.com/eliasnogueira/credit-restriction-api)
-* [credit-simulator-api](https://github.com/eliasnogueira/credit-simulator-api)
+* [credit-simulation-api](https://github.com/eliasnogueira/credit-simulation-api)
 
 # Required software
 * Java JDK 11+

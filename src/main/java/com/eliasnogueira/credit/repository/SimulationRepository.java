@@ -24,7 +24,8 @@
 
 package com.eliasnogueira.credit.repository;
 
-import com.eliasnogueira.credit.entity.Simulator;
+import com.eliasnogueira.credit.entity.Simulation;
+
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -33,9 +34,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public interface SimulatorRepository extends JpaRepository<Simulator, Long>, JpaSpecificationExecutor<Simulator> {
+public interface SimulationRepository extends JpaRepository<Simulation, Long>, JpaSpecificationExecutor<Simulation> {
 
-    Optional<Simulator> findByCpf(@Param("cpf") String cpf);
+    Optional<Simulation> findByCpf(@Param("cpf") String cpf);
 
     @Transactional
     void deleteByCpf(@Param("cpf") String cpf);

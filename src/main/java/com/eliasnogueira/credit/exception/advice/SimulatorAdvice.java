@@ -25,7 +25,7 @@
 package com.eliasnogueira.credit.exception.advice;
 
 import com.eliasnogueira.credit.dto.v1.MessageDto;
-import com.eliasnogueira.credit.exception.SimulatorException;
+import com.eliasnogueira.credit.exception.SimulationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -36,9 +36,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class SimulatorAdvice {
 
     @ResponseBody
-    @ExceptionHandler(SimulatorException.class)
+    @ExceptionHandler(SimulationException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    MessageDto simulatorHandler(SimulatorException e) {
+    MessageDto simulatorHandler(SimulationException e) {
         return new MessageDto(e.toString());
     }
 }

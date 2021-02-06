@@ -52,7 +52,7 @@ import java.math.BigDecimal;
 @Table(uniqueConstraints = {
         @UniqueConstraint(name = "cpf_unique", columnNames = "cpf")
 })
-public class Simulator {
+public class Simulation {
 
     @ApiModelProperty(hidden = true)
     @Id

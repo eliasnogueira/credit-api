@@ -33,8 +33,8 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-@ApiModel(value = "Simulator")
-public class SimulatorDto {
+@ApiModel(value = "Simulation")
+public class SimulationDto {
 
     @ApiModelProperty(hidden = true)
     @JsonIgnore
