@@ -27,7 +27,6 @@ package com.eliasnogueira.credit.controller;
 import com.eliasnogueira.credit.dto.SimulationDto;
 import com.eliasnogueira.credit.dto.ValidationDto;
 import com.eliasnogueira.credit.entity.Simulation;
-import com.eliasnogueira.credit.exception.SimulationByNameNotFoundException;
 import com.eliasnogueira.credit.exception.SimulationException;
 import com.eliasnogueira.credit.repository.SimulationRepository;
 import io.swagger.annotations.Api;
@@ -77,7 +76,7 @@ public class SimulationController {
         @ApiResponse(code = 200, message = "Simulations found", response = Simulation.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Name not found")
     })
-    public List<Simulation> getSimulator(@ApiParam(value = "Search a simulation by a person name")
+    public List<Simulation> getSimulation(@ApiParam(value = "Search a simulation by a person name")
         @RequestParam(name = "name", required = false) String name) {
         List<Simulation> simulationsFound;
 
@@ -88,7 +87,7 @@ public class SimulationController {
 
         simulationsFound = repository.findAll(example);
 
-        if (simulationsFound.isEmpty()) throw new SimulationByNameNotFoundException();
+        if (simulationsFound.isEmpty()) throw new SimulationException("Simulation not found!");
 
         return simulationsFound;
     }
@@ -116,7 +115,7 @@ public class SimulationController {
         @ApiResponse(code = 422, message = "Missing information", response = ValidationDto.class),
         @ApiResponse(code = 409, message = "CPF already exists")
     })
-    public ResponseEntity<URI> newSimulator(@ApiParam(value = "Simulation object", required = true)
+    public ResponseEntity<URI> newSimulation(@ApiParam(value = "Simulation object", required = true)
         @Valid @RequestBody SimulationDto simulation) {
         Simulation createdSimulation = repository.save(new ModelMapper().map(simulation, Simulation.class));
         URI location = ServletUriComponentsBuilder.
@@ -135,7 +134,7 @@ public class SimulationController {
         @ApiResponse(code = 404, message = "Simulation not found"),
         @ApiResponse(code = 409, message = "CPF already exists")
     })
-    public Simulation updateSimulator(
+    public Simulation updateSimulation(
         @ApiParam(value = "Simulation object with data to update", required = true)
             @RequestBody SimulationDto simulation,
         @ApiParam(value = "CPF to query an existing simulation", required = true)
