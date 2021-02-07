@@ -33,12 +33,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public class SimulatorAdvice {
+public class SimulationAdvice {
 
     @ResponseBody
     @ExceptionHandler(SimulationException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    MessageDto simulatorHandler(SimulationException e) {
+    MessageDto simulationHandler(SimulationException e) {
         return new MessageDto(e.toString());
     }
 }
