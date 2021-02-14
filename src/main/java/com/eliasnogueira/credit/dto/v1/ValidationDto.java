@@ -30,7 +30,7 @@ import java.util.Map;
 @ApiModel(value = "Validation")
 public class ValidationDto {
 
-    private Map<String, String> errors;
+    private final Map<String, String> errors;
 
     public ValidationDto(Map<String, String> errors) {
         this.errors = errors;

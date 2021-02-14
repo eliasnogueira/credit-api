@@ -31,7 +31,7 @@ public enum Type {
     CREDIT_SCORE("Credit Score"),
     BANKING("Banking");
 
-    private String value;
+    private final String value;
 
     Type(String value) {
         this.value = value;

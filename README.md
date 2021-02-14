@@ -38,7 +38,7 @@ It's not really a production environment, but the API is also deployed on Heroku
 I added it there to enable you to play with different environment where localhost would be your development environment, 
 and the heroku one would be your production environment.
 
-You can use the following base URI to use as an production environment: 
+You can use the following base URI to use as a production environment: 
 [https://eliasnogueira-credit-api.herokuapp.com/](https://eliasnogueira-credit-api.herokuapp.com/)
 
 # Do you want to help?
