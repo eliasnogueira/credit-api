@@ -166,6 +166,7 @@ public class SimulationController {
             setIfNotNull(simulation::setEmail, newSimulation.getEmail());
             setIfNotNull(simulation::setInstallments, newSimulation.getInstallments());
             setIfNotNull(simulation::setAmount, newSimulation.getAmount());
+            setIfNotNull(simulation::setInsurance, newSimulation.getInsurance());
 
             return repository.save(simulation);
         });
