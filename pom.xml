@@ -17,7 +17,7 @@
     <properties>
         <java.version>11</java.version>
         <springfox.version>3.0.0</springfox.version>
-        <modelmapper.version>2.3.9</modelmapper.version>
+        <modelmapper.version>2.4.2</modelmapper.version>
         <lombok.version>1.18.18</lombok.version>
         <hibernate-jpamodelgen.version>6.0.0.Alpha6</hibernate-jpamodelgen.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
