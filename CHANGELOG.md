@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.7] - 23-05-2021
+- Updated the following dependencies
+  - `modelmapper-2.4.3`
+  - `lombok-1.18.20`
+  - `hibernate-jpamodelgen-6.0.0.Alpha8`
+  - `spring-boot-starter-parent-2.5.0`
+
 ## [1.4.7] - 16-02-2021
 
 ### Changed
