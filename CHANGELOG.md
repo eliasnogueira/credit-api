@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `lombok-1.18.24`
   - `hibernate-jpamodelgen-6.0.0.Final`
 - Added `jakarta.xml.bind-api` library to prevent `java.lang.NoClassDefFoundError: jakarta/xml/bind/JAXBException: jakarta.xml.bind.JAXBException` 
+- OpenAPI docs link updated in the `README.md` file
 
 ## [1.4.7] - 23-05-2021
 
