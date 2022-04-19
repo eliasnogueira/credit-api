@@ -17,9 +17,10 @@
     <properties>
         <java.version>11</java.version>
         <springfox.version>3.0.0</springfox.version>
-        <modelmapper.version>2.4.3</modelmapper.version>
-        <lombok.version>1.18.20</lombok.version>
-        <hibernate-jpamodelgen.version>6.0.0.Alpha8</hibernate-jpamodelgen.version>
+        <modelmapper.version>3.1.0</modelmapper.version>
+        <lombok.version>1.18.24</lombok.version>
+        <hibernate-jpamodelgen.version>6.0.0.Final</hibernate-jpamodelgen.version>
+        <jakarta.xml.bind.version>3.0.1</jakarta.xml.bind.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <maven-failsafe.version>3.0.0-M5</maven-failsafe.version>
 
@@ -95,6 +96,12 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-jpamodelgen</artifactId>
             <version>${hibernate-jpamodelgen.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>${jakarta.xml.bind.version}</version>
         </dependency>
 
     </dependencies>
