@@ -31,7 +31,7 @@ mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=<NEW_PORT>
 ```
 
 ## How to access the documentation (Swagger)
-After the application has started open the link: http://localhost:8088/swagger-ui.html
+After the application has started open the link: http://localhost:8088/swagger-ui/index.html
 
 ## How to access the production endpoint
 It's not really a production environment, but the API is also deployed on Heroku.

@@ -4,17 +4,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.8] - 19-04-2022
+
+### Changed
+- Updated the following libraries
+  - `modelmapper-3.1.0`
+  - `lombok-1.18.24`
+  - `hibernate-jpamodelgen-6.0.0.Final`
+- Added `jakarta.xml.bind-api` library to prevent `java.lang.NoClassDefFoundError: jakarta/xml/bind/JAXBException: jakarta.xml.bind.JAXBException` 
+- OpenAPI docs link updated in the `README.md` file
+
 ## [1.4.7] - 23-05-2021
+
+### Changed
 - Dummy PR to solve GitHub Packages problem
 
 ## [1.4.7] - 16-02-2021
+
+### Changed
 - Updated the following dependencies
   - `modelmapper-2.4.3`
   - `lombok-1.18.20`
   - `hibernate-jpamodelgen-6.0.0.Alpha8`
   - `spring-boot-starter-parent-2.5.0`
-
-### Changed
 - Added missing `insurance` field in the simulation update
 
 ## [1.4.6] - 14-02-2021
