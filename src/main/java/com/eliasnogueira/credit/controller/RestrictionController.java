@@ -24,9 +24,15 @@
 
 package com.eliasnogueira.credit.controller;
 
+import com.eliasnogueira.credit.dto.v1.MessageDto;
 import com.eliasnogueira.credit.entity.Restriction;
 import com.eliasnogueira.credit.exception.v2.RestrictionException;
 import com.eliasnogueira.credit.service.RestrictionService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,6 +42,7 @@ import java.text.MessageFormat;
 import java.util.Optional;
 
 @RestController
+@Api(value = "Restrictions", tags = "Restrictions")
 public class RestrictionController {
 
     private final RestrictionService restrictionService;
@@ -45,8 +52,13 @@ public class RestrictionController {
         this.restrictionService = restrictionService;
     }
 
+    @ApiOperation(value = "Query to search for a restricted CPF")
+    @ApiResponses({
+            @ApiResponse(code = 404, message = "No restrictions"),
+            @ApiResponse(code = 200, message = "Restriction found", response = MessageDto.class)
+    })
     @GetMapping("/api/v1/restrictions/{cpf}")
-    public ResponseEntity<Void> one(@PathVariable String cpf) {
+    public ResponseEntity<Void> one(@ApiParam(value = "CPF to query", required = true) @PathVariable String cpf) {
         Optional<Restriction> restrictionOptional = restrictionService.findByCpf(cpf);
 
         if (restrictionOptional.isPresent()) {
@@ -57,8 +69,13 @@ public class RestrictionController {
         return ResponseEntity.notFound().build();
     }
 
+    @ApiOperation(value = "Query to search for a restricted CPF")
+    @ApiResponses({
+            @ApiResponse(code = 404, message = "No restrictions"),
+            @ApiResponse(code = 200, message = "Restriction found", response = com.eliasnogueira.credit.dto.v2.MessageDto.class)
+    })
     @GetMapping("/api/v2/restrictions/{cpf}")
-    public ResponseEntity<Void> oneV2(@PathVariable String cpf) {
+    public ResponseEntity<Void> oneV2(@ApiParam(value = "CPF to query", required = true) @PathVariable String cpf) {
         Optional<Restriction> restrictionOptional = restrictionService.findByCpf(cpf);
 
         if (restrictionOptional.isPresent()) {

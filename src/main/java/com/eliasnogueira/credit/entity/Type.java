@@ -24,9 +24,7 @@
 
 package com.eliasnogueira.credit.entity;
 
-import java.util.function.Supplier;
-
-public enum Type implements Supplier<String> {
+public enum Type {
 
     JUDICIAL_ISSUE("Judicial Issue"),
     CREDIT_CARD("Credit Card"),
@@ -39,8 +37,7 @@ public enum Type implements Supplier<String> {
         this.value = value;
     }
 
-    @Override
-    public String get() {
-        return this.value;
+    public String value() {
+        return value;
     }
 }

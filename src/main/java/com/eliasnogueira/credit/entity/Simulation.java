@@ -24,6 +24,7 @@
 
 package com.eliasnogueira.credit.entity;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -53,33 +54,40 @@ import java.math.BigDecimal;
 })
 public class Simulation {
 
+    @ApiModelProperty(hidden = true)
     @Id
     @GeneratedValue
     private Long id;
 
+    @ApiModelProperty(name = "Name", position = 1, example = "John Doe")
     @NotNull(message = "Name cannot be empty")
     @NotBlank(message = "Name cannot be empty")
     private String name;
 
+    @ApiModelProperty(name = "CPF", position = 2, example = "9709323014")
     @NotNull(message = "CPF cannot be empty")
     @NotBlank(message = "CPF cannot be empty")
     private String cpf;
 
+    @ApiModelProperty(name = "Email", position = 3, example = "john.doe@gmail.com")
     @NotNull(message = "E-mail cannot be empty")
     @Email
     @Pattern(regexp = ".+@.+\\.[a-z]+", message = "E-mail must be valid")
     private String email;
 
+    @ApiModelProperty(name = "Amount", position = 4, example = "1200")
     @NotNull(message = "Amount cannot be empty")
     @Min(value = 1000, message = "Amount must be equal or greater than $ 1.000")
     @Max(value = 40000, message = "Amount must be equal or less than than $ 40.000")
     private BigDecimal amount;
 
+    @ApiModelProperty(name = "Installments", position = 5, example = "3")
     @NotNull(message = "Installments cannot be empty")
     @Min(value = 2, message = "Installments must be equal or greater than 2")
     @Max(value = 48, message = "Installments must be equal or less than 48")
     private Integer installments;
 
+    @ApiModelProperty(name = "Insurance", position = 5, example = "true")
     @NotNull(message = "One of the insurance options must be selected")
     private Boolean insurance;
 }

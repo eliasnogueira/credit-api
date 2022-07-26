@@ -24,10 +24,14 @@
 
 package com.eliasnogueira.credit.dto.v1;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
+@ApiModel(value = "Restriction v1")
 public class RestrictionDto {
 
+    @ApiModelProperty(required = true, example = "99999999999")
     private String cpf;
 }

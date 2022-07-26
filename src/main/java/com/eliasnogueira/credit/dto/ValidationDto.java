@@ -24,8 +24,10 @@
 
 package com.eliasnogueira.credit.dto;
 
+import io.swagger.annotations.ApiModel;
 import java.util.Map;
 
+@ApiModel(value = "Validation")
 public class ValidationDto {
 
     private final Map<String, String> errors;
