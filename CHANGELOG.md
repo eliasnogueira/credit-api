@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 24-07-2022
+
+### Added
+- Added the openapi spec as a yaml file at /src/main/resources/static
+- Added `springdoc-openapi-ui` dependency and related changes
+- `Dockerfile` to build the project as an image
+
+### Changed
+- Removed the spring-fox annotation from several classes
+- Update `spring-boot-starter-parent`, `junit`, `model-mapper`, `hibernate-jpamodelgen` and `lombok` library version
+- Update actions in the GitHub workflow
+
+### Removed
+- Removed the spring-fox dependency and related code
+
 ## [1.4.8] - 19-04-2022
 
 ### Changed

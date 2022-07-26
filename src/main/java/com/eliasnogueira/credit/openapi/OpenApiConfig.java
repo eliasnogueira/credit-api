@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) today.year Elias Nogueira
+ * Copyright (c) 2020 Elias Nogueira
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,19 +22,29 @@
  * SOFTWARE.
  */
 
-package com.eliasnogueira.credit.dto;
+package com.eliasnogueira.credit.openapi;
 
-import java.util.Map;
+import org.springdoc.core.SpringDocConfigProperties;
+import org.springdoc.core.SpringDocConfiguration;
+import org.springdoc.core.providers.ObjectMapperProvider;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-public class ValidationDto {
+@Configuration
+public class OpenApiConfig {
 
-    private final Map<String, String> errors;
-
-    public ValidationDto(Map<String, String> errors) {
-        this.errors = errors;
+    @Bean
+    SpringDocConfiguration springDocConfiguration() {
+        return new SpringDocConfiguration();
     }
 
-    public Map<String, String> getErrors() {
-        return errors;
+    @Bean
+    SpringDocConfigProperties springDocConfigProperties() {
+        return new SpringDocConfigProperties();
+    }
+
+    @Bean
+    ObjectMapperProvider objectMapperProvider(SpringDocConfigProperties springDocConfigProperties) {
+        return new ObjectMapperProvider(springDocConfigProperties);
     }
 }

@@ -1,0 +1,243 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  description: Aplicação para consultar a restrição de um CPF
+  title: Consulta Restrição de Crédito
+tags:
+  - name: Restrições
+    description: Consulta uma restrição
+  - name: Simulações
+    description: Efetua operações de CRUD para simulações
+paths:
+  "/api/v1/restricoes/{cpf}":
+    get:
+      tags:
+        - Restrições
+      summary: Consulta se um CPF possui ou não restrição
+      operationId: oneUsingGET
+      parameters:
+        - name: cpf
+          in: path
+          description: CPF que será consultado
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Pessoa com restrição
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/MensagemV1"
+        "404":
+          description: Não possui restrição
+  /api/v1/simulacoes:
+    get:
+      tags:
+        - Simulações
+      summary: Retorna todas as simulações existentes
+      operationId: getSimulacaoUsingGET
+      parameters:
+        - name: nome
+          in: query
+          description: Pesquisar uma simulação pelo nome da pessoa
+          required: false
+          allowEmptyValue: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Simulações encontradas
+          content:
+            "application/json":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Simulacao"
+        "404":
+          description: Simulação não encontrada
+    post:
+      tags:
+        - Simulações
+      summary: Cria uma nova simulação
+      operationId: novaSimulacaoUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Simulacao"
+        description: Objeto da Simulação
+        required: true
+      responses:
+        "201":
+          description: Simulação criada com sucesso
+          headers:
+            Location:
+              description: URI completa contendo o CPF
+              schema:
+                type: string
+        "409":
+          description: CPF já existente
+        "422":
+          description: Falta de informações
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/Validacao"
+  "/api/v1/simulacoes/{cpf}":
+    get:
+      tags:
+        - Simulações
+      summary: Retorna uma simulação através do CPF
+      operationId: oneUsingGET_1
+      parameters:
+        - name: cpf
+          in: path
+          description: CPF da pesssoa a ser pesquisada
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Simulação encontrada
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/Simulacao"
+        "404":
+          description: Simulação não encontrada
+    put:
+      tags:
+        - Simulações
+      summary: Atualiza uma simulação existente através do CPF
+      operationId: atualizarSimulacaoUsingPUT
+      parameters:
+        - name: cpf
+          in: path
+          description: CPF da pesssoa para a simulação que será atualizada
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Simulacao"
+        description: Objeto simulação com os dados que serão atualizados
+        required: true
+      responses:
+        "200":
+          description: Simulação alterada com sucesso
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/Simulacao"
+        "404":
+          description: Simulação não encontrada
+        "409":
+          description: CPF já existente
+    delete:
+      tags:
+        - Simulações
+      summary: Remove uma simulação existente através do CPF
+      operationId: deleteUsingDELETE
+      parameters:
+        - name: cpf
+          in: path
+          description: CPF da pesssoa para a simulação que será removida
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Simulação removida com sucesso
+        "404":
+          description: Simulação não encontrada
+  "/api/v2/restricoes/{cpf}":
+    get:
+      tags:
+        - Restrições
+      summary: Consulta se um CPF possui ou não restrição
+      operationId: oneV2UsingGET
+      parameters:
+        - name: cpf
+          in: path
+          description: CPF que será consultado
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Pessoa com restrição
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/MensagemV2"
+        "404":
+          description: Não possui restrição
+servers:
+  - url: //localhost:8088/
+components:
+  schemas:
+    MensagemV1:
+      type: object
+      required:
+        - mensagem
+      properties:
+        mensagem:
+          type: string
+          example: O CPF 999999999 possui restrição
+      title: Mensagem v1
+    MensagemV2:
+      type: object
+      required:
+        - detalhe
+        - retorno
+      properties:
+        detalhe:
+          type: string
+          example: Bloqueio Judicial
+        retorno:
+          type: string
+          example: O CPF 999999999 não foi encontrado
+      title: Mensagem v2
+    Simulacao:
+      type: object
+      properties:
+        cpf:
+          type: string
+          example: 9709323014
+        email:
+          type: string
+          example: joao@gmail.com
+          pattern: .+@.+\.[a-z]+
+        nome:
+          type: string
+          example: João da Silva
+        parcelas:
+          type: integer
+          format: int32
+          example: 3
+          minimum: 2
+          maximum: 48
+          exclusiveMinimum: false
+          exclusiveMaximum: false
+        seguro:
+          type: boolean
+          example: true
+        valor:
+          type: number
+          example: 1200
+          minimum: 1000
+          maximum: 40000
+          exclusiveMinimum: false
+          exclusiveMaximum: false
+      title: Simulação
+    Validacao:
+      type: object
+      properties:
+        erros:
+          type: object
+          additionalProperties:
+            type: string
+      title: Validação
