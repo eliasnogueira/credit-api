@@ -30,7 +30,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @AllArgsConstructor
-@EqualsAndHashCode()
+@EqualsAndHashCode(callSuper = true)
 public class RestrictionException extends RuntimeException {
 
     private final String message;
