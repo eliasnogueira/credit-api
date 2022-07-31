@@ -1,120 +1,120 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  description: Aplicação para consultar a restrição de um CPF
-  title: Consulta Restrição de Crédito
+  description: Query CPF restrictions
+  title: Credit Restriction API
 tags:
-  - name: Restrições
-    description: Consulta uma restrição
-  - name: Simulações
-    description: Efetua operações de CRUD para simulações
+  - name: Restrictions
+    description: Query restrictions
+  - name: Simulations
+    description: CRUD operations for simulator
 paths:
-  "/api/v1/restricoes/{cpf}":
+  "/api/v1/restrictions/{cpf}":
     get:
       tags:
-        - Restrições
-      summary: Consulta se um CPF possui ou não restrição
+        - Restrictions
+      summary: Query to search for a restricted CPF
       operationId: oneUsingGET
       parameters:
         - name: cpf
           in: path
-          description: CPF que será consultado
+          description: CPF to query
           required: true
           schema:
             type: string
       responses:
         "200":
-          description: Pessoa com restrição
+          description: Restiction found
           content:
             "application/json":
               schema:
-                $ref: "#/components/schemas/MensagemV1"
+                $ref: "#/components/schemas/MessageV1"
         "404":
-          description: Não possui restrição
-  /api/v1/simulacoes:
+          description: No restrictions
+  /api/v1/simulations:
     get:
       tags:
-        - Simulações
-      summary: Retorna todas as simulações existentes
-      operationId: getSimulacaoUsingGET
+        - Simulations
+      summary: Return all recorded simulations
+      operationId: getSimulationUsingGET
       parameters:
-        - name: nome
+        - name: name
           in: query
-          description: Pesquisar uma simulação pelo nome da pessoa
+          description: Search a simulation by a person name
           required: false
           allowEmptyValue: false
           schema:
             type: string
       responses:
         "200":
-          description: Simulações encontradas
+          description: Simulations found
           content:
             "application/json":
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Simulacao"
+                  $ref: "#/components/schemas/Simulation"
         "404":
-          description: Simulação não encontrada
+          description: Name not found
     post:
       tags:
-        - Simulações
-      summary: Cria uma nova simulação
-      operationId: novaSimulacaoUsingPOST
+        - Simulations
+      summary: Record a new simulation
+      operationId: newSimulationUsingPOST
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Simulacao"
-        description: Objeto da Simulação
+              $ref: "#/components/schemas/Simulation"
+        description: Simulation object
         required: true
       responses:
         "201":
-          description: Simulação criada com sucesso
+          description: Simulation created successfully
           headers:
             Location:
-              description: URI completa contendo o CPF
+              description: URI to query the created simulation
               schema:
                 type: string
         "409":
-          description: CPF já existente
+          description: CPF already exists
         "422":
-          description: Falta de informações
+          description: Missing information
           content:
             "application/json":
               schema:
-                $ref: "#/components/schemas/Validacao"
-  "/api/v1/simulacoes/{cpf}":
+                $ref: "#/components/schemas/Validation"
+  "/api/v1/simulations/{cpf}":
     get:
       tags:
-        - Simulações
-      summary: Retorna uma simulação através do CPF
+        - Simulations
+      summary: Return a simulation for a given CPF
       operationId: oneUsingGET_1
       parameters:
         - name: cpf
           in: path
-          description: CPF da pesssoa a ser pesquisada
+          description: CPF to query an existing simulation
           required: true
           schema:
             type: string
       responses:
         "200":
-          description: Simulação encontrada
+          description: Simulations found
           content:
             "application/json":
               schema:
-                $ref: "#/components/schemas/Simulacao"
+                $ref: "#/components/schemas/Simulation"
         "404":
-          description: Simulação não encontrada
+          description: Simulations not found
     put:
       tags:
-        - Simulações
-      summary: Atualiza uma simulação existente através do CPF
-      operationId: atualizarSimulacaoUsingPUT
+        - Simulations
+      summary: Update a simulation by a given CPF
+      operationId: updateSimulationUsingPUT
       parameters:
         - name: cpf
           in: path
-          description: CPF da pesssoa para a simulação que será atualizada
+          description: CPF to query an existing simulation
           required: true
           schema:
             type: string
@@ -122,86 +122,86 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Simulacao"
-        description: Objeto simulação com os dados que serão atualizados
+              $ref: "#/components/schemas/Simulation"
+        description: Simulation object with data to update
         required: true
       responses:
         "200":
-          description: Simulação alterada com sucesso
+          description: Simulation updated successfully
           content:
             "application/json":
               schema:
-                $ref: "#/components/schemas/Simulacao"
+                $ref: "#/components/schemas/Simulation"
         "404":
-          description: Simulação não encontrada
+          description: Simulation not found
         "409":
-          description: CPF já existente
+          description: CPF already exists
     delete:
       tags:
-        - Simulações
-      summary: Remove uma simulação existente através do CPF
+        - Simulations
+      summary: Delete a simulation by a given CPF
       operationId: deleteUsingDELETE
       parameters:
         - name: cpf
           in: path
-          description: CPF da pesssoa para a simulação que será removida
+          description: CPF to query an existing simulation
           required: true
           schema:
             type: string
       responses:
         "204":
-          description: Simulação removida com sucesso
+          description: Simulation deleted successfully
         "404":
-          description: Simulação não encontrada
-  "/api/v2/restricoes/{cpf}":
+          description: Simulation not found
+  "/api/v2/restrictions/{cpf}":
     get:
       tags:
-        - Restrições
-      summary: Consulta se um CPF possui ou não restrição
+        - Restrictions
+      summary: Query to search for a restricted CPF
       operationId: oneV2UsingGET
       parameters:
         - name: cpf
           in: path
-          description: CPF que será consultado
+          description: CPF to query
           required: true
           schema:
             type: string
       responses:
         "200":
-          description: Pessoa com restrição
+          description: Restriction found
           content:
             "application/json":
               schema:
-                $ref: "#/components/schemas/MensagemV2"
+                $ref: "#/components/schemas/MessageV2"
         "404":
-          description: Não possui restrição
+          description: No restrictions
 servers:
   - url: //localhost:8088/
 components:
   schemas:
-    MensagemV1:
+    MessageV1:
       type: object
       required:
-        - mensagem
+        - message
       properties:
-        mensagem:
+        message:
           type: string
-          example: O CPF 999999999 possui restrição
-      title: Mensagem v1
-    MensagemV2:
+          example: CPF 999999999 has a restriction
+      title: Message v1
+    MessageV2:
       type: object
       required:
-        - detalhe
-        - retorno
+        - detail
+        - returnMessage
       properties:
-        detalhe:
+        detail:
           type: string
-          example: Bloqueio Judicial
-        retorno:
+          example: Judicial
+        returnMessage:
           type: string
-          example: O CPF 999999999 não foi encontrado
-      title: Mensagem v2
-    Simulacao:
+          example: CPF 999999999 not found
+      title: Message v2
+    Simulation:
       type: object
       properties:
         cpf:
@@ -209,12 +209,12 @@ components:
           example: 9709323014
         email:
           type: string
-          example: joao@gmail.com
+          example: john.doe@gmail.com
           pattern: .+@.+\.[a-z]+
-        nome:
+        name:
           type: string
-          example: João da Silva
-        parcelas:
+          example: John Doe
+        installments:
           type: integer
           format: int32
           example: 3
@@ -222,22 +222,22 @@ components:
           maximum: 48
           exclusiveMinimum: false
           exclusiveMaximum: false
-        seguro:
+        insurance:
           type: boolean
           example: true
-        valor:
+        amount:
           type: number
           example: 1200
           minimum: 1000
           maximum: 40000
           exclusiveMinimum: false
           exclusiveMaximum: false
-      title: Simulação
-    Validacao:
+      title: Simulation
+    Validation:
       type: object
       properties:
-        erros:
+        errors:
           type: object
           additionalProperties:
             type: string
-      title: Validação
+      title: Validation
