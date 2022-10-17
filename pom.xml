@@ -17,7 +17,7 @@
     <properties>
         <java.version>11</java.version>
         <junit.version>5.9.0-RC1</junit.version>
-        <springdoc-openapi-ui.version>1.6.9</springdoc-openapi-ui.version>
+        <springdoc-openapi-ui.version>1.6.12</springdoc-openapi-ui.version>
         <modelmapper.version>3.1.0</modelmapper.version>
         <lombok.version>1.18.24</lombok.version>
         <hibernate-jpamodelgen.version>6.1.0.Final</hibernate-jpamodelgen.version>
