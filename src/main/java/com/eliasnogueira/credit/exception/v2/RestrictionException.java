@@ -26,9 +26,11 @@ package com.eliasnogueira.credit.exception.v2;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 public class RestrictionException extends RuntimeException {
 
     private final String message;
