@@ -14,6 +14,14 @@
     <artifactId>combined-credit-api</artifactId>
     <version>1.6.0-SNAPSHOT</version>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>credit-api</name>
+            <url>https://maven.pkg.github.com/eliasnogueira/credit-api</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
         <java.version>17</java.version>
         <maven-compiler.plugin.version>3.10.1</maven-compiler.plugin.version>
