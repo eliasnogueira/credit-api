@@ -22,21 +22,23 @@
  * SOFTWARE.
  */
 
-package com.eliasnogueira.credit.repository;
+package com.eliasnogueira.credit.exception.advice;
 
-import com.eliasnogueira.credit.entity.Simulator;
-import java.util.Optional;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import com.eliasnogueira.credit.dto.v1.MessageDto;
+import com.eliasnogueira.credit.exception.SimulationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
-@Repository
-public interface SimulatorRepository extends JpaRepository<Simulator, Long>, JpaSpecificationExecutor<Simulator> {
+@ControllerAdvice
+public class SimulationAdvice {
 
-    Optional<Simulator> findByCpf(@Param("cpf") String cpf);
-
-    @Transactional
-    void deleteByCpf(@Param("cpf") String cpf);
+    @ResponseBody
+    @ExceptionHandler(SimulationException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    MessageDto simulatorHandler(SimulationException e) {
+        return new MessageDto(e.toString());
+    }
 }

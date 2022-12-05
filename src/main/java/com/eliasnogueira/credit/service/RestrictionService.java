@@ -29,8 +29,5 @@ import java.util.Optional;
 
 public interface RestrictionService {
 
-    Restriction save(Restriction restriction);
-
     Optional<Restriction> findByCpf(String cpf);
-
 }

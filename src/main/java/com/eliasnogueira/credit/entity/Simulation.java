@@ -49,7 +49,7 @@ import lombok.NoArgsConstructor;
 @Table(uniqueConstraints = {
     @UniqueConstraint(name = "cpf_unique", columnNames = "cpf")
 })
-public class Simulator {
+public class Simulation {
 
     @Id
     @GeneratedValue

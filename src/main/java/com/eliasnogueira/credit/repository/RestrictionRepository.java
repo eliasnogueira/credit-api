@@ -35,5 +35,4 @@ import org.springframework.stereotype.Repository;
 public interface RestrictionRepository extends JpaRepository<Restriction, Long> {
 
     Optional<Restriction> findByCpf(@Param("cpf") String cpf);
-
 }

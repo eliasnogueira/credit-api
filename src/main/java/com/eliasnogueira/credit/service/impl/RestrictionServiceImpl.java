@@ -39,11 +39,6 @@ public class RestrictionServiceImpl implements RestrictionService {
         this.repository = repository;
     }
 
-    @Override
-    public Restriction save(Restriction restriction) {
-        return null;
-    }
-
     public Optional<Restriction> findByCpf(String cpf) {
         return repository.findByCpf(cpf);
     }
