@@ -22,7 +22,20 @@
  * SOFTWARE.
  */
 
-package com.eliasnogueira.credit.dto.v1;
+package com.eliasnogueira.credit;
 
-public record MessageDto(String message) {
+import lombok.extern.log4j.Log4j2;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+@SpringBootApplication
+@EnableJpaRepositories
+@Log4j2
+public class CreditApiApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(CreditApiApplication.class, args);
+        log.info("Application has started! Happy tests!");
+    }
 }

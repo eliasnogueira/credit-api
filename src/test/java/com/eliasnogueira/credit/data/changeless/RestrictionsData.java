@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Elias Nogueira
+ * Copyright (c) 2022 Elias Nogueira
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,20 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package com.eliasnogueira.credit.data.changeless;
 
-package com.eliasnogueira.credit.dto.v1;
+public final class RestrictionsData {
 
-import java.util.Map;
-
-public class ValidationDto {
-
-    private final Map<String, String> errors;
-
-    public ValidationDto(Map<String, String> errors) {
-        this.errors = errors;
+    private RestrictionsData() {
     }
 
-    public Map<String, String> getErrors() {
-        return errors;
-    }
+    public static final String SERVICE = "/restrictions";
+    public static final String GET_RESTRICTIONS = String.format("%s/{cpf}", SERVICE);
+    public static final String CPF = "cpf";
 }

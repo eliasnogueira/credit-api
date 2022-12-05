@@ -45,8 +45,7 @@ public class RestrictionAdvice {
     @ResponseBody
     @ExceptionHandler(RestrictionException.class)
     @ResponseStatus(HttpStatus.OK)
-    com.eliasnogueira.credit.dto.v2.MessageDto restrictionHandlerV2(
-        RestrictionException e) {
+    com.eliasnogueira.credit.dto.v2.MessageDto restrictionHandlerV2(RestrictionException e) {
         return new com.eliasnogueira.credit.dto.v2.MessageDto(e.getMessage(), e.getDetail());
     }
 }

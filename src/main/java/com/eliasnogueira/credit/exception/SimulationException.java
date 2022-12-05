@@ -24,11 +24,13 @@
 
 package com.eliasnogueira.credit.exception;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 public class SimulationException extends RuntimeException {
 
     private final String message;

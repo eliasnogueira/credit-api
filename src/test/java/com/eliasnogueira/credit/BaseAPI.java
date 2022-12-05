@@ -21,13 +21,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package com.eliasnogueira.credit;
 
-package com.eliasnogueira.credit.dto.v1;
+import io.restassured.RestAssured;
+import io.restassured.config.SSLConfig;
+import io.restassured.path.json.config.JsonPathConfig.NumberReturnType;
+import org.junit.jupiter.api.BeforeAll;
 
-import lombok.Data;
+import static io.restassured.RestAssured.basePath;
+import static io.restassured.RestAssured.baseURI;
+import static io.restassured.RestAssured.config;
+import static io.restassured.RestAssured.port;
+import static io.restassured.config.JsonConfig.jsonConfig;
+import static io.restassured.config.RestAssuredConfig.newConfig;
 
-@Data
-public class RestrictionDto {
+public abstract class BaseAPI {
+    @BeforeAll
+    public static void beforeAllTests() {
+        baseURI = "http://localhost";
+        basePath = "/api/v1";
+        port = 8088;
 
-    private String cpf;
+        // solve the problem with big decimal assertions
+        config = newConfig().
+                jsonConfig(jsonConfig().numberReturnType(NumberReturnType.BIG_DECIMAL)).
+                sslConfig(new SSLConfig().allowAllHostnames());
+
+        RestAssured.useRelaxedHTTPSValidation();
+    }
 }

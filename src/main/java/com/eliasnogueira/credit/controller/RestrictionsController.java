@@ -36,17 +36,17 @@ import java.text.MessageFormat;
 import java.util.Optional;
 
 @RestController
-public class RestrictionController {
+public class RestrictionsController {
 
     private final RestrictionService restrictionService;
     private static final String CPF_HAS_RESTRICTIONS = "CPF {0} has a restriction";
 
-    public RestrictionController(RestrictionService restrictionService) {
+    public RestrictionsController(RestrictionService restrictionService) {
         this.restrictionService = restrictionService;
     }
 
     @GetMapping("/api/v1/restrictions/{cpf}")
-    public ResponseEntity<Void> one(@PathVariable String cpf) {
+    ResponseEntity<Void> one(@PathVariable String cpf) {
         Optional<Restriction> restrictionOptional = restrictionService.findByCpf(cpf);
 
         if (restrictionOptional.isPresent()) {
@@ -58,12 +58,13 @@ public class RestrictionController {
     }
 
     @GetMapping("/api/v2/restrictions/{cpf}")
-    public ResponseEntity<Void> oneV2(@PathVariable String cpf) {
+    ResponseEntity<Void> oneV2(@PathVariable String cpf) {
         Optional<Restriction> restrictionOptional = restrictionService.findByCpf(cpf);
 
         if (restrictionOptional.isPresent()) {
             throw new RestrictionException(
-                    MessageFormat.format(CPF_HAS_RESTRICTIONS, cpf), restrictionOptional.get().getType());
+                    MessageFormat.format(CPF_HAS_RESTRICTIONS, cpf),
+                    restrictionOptional.get().getType());
         }
 
         return ResponseEntity.notFound().build();

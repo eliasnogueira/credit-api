@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Elias Nogueira
+ * Copyright (c) 2022 Elias Nogueira
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,20 +22,23 @@
  * SOFTWARE.
  */
 
-package com.eliasnogueira.credit;
+package com.eliasnogueira.credit.data.changeless;
 
-import lombok.extern.log4j.Log4j2;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+public enum SimulationErrorsData {
 
-@SpringBootApplication
-@EnableJpaRepositories
-@Log4j2
-public class Run {
+    ERRORS_AMOUNT_GREATER("errors.amount", "Amount must be equal or greater than $ 1.000"),
+    ERRORS_AMOUNT_LESS("errors.amount", "Amount must be equal or less than than $ 40.000"),
+    ERRORS_INSTALLMENTS_GREATER("errors.installments", "Installments must be equal or greater than 2"),
+    ERRORS_INSTALLMENTS_LESS("errors.installments", "Installments must be equal or less than 48"),
+    ERRORS_EMAIL("errors.email", "must be a well-formed email address"),
+    ERRORS_CPF("errors.cpf", "CPF cannot be empty"),
+    ERRORS_NAME("errors.name", "Name cannot be empty");
 
-    public static void main(String[] args) {
-        SpringApplication.run(Run.class, args);
-        log.info("Application has started! Happy tests!");
+    public final String key;
+    public final String message;
+
+    SimulationErrorsData(String key, String message) {
+        this.key = key;
+        this.message = message;
     }
 }

@@ -24,15 +24,5 @@
 
 package com.eliasnogueira.credit.dto.v2;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class MessageDto {
-
-    private String returnMessage;
-    private String detail;
+public record MessageDto(String returnMessage, String detail) {
 }

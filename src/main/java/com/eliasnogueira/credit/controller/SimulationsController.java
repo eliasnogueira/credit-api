@@ -54,12 +54,12 @@ import java.util.function.Consumer;
 
 @RestController
 @RequestMapping("/api/v1/simulations")
-public class SimulationController {
+public class SimulationsController {
 
     private final SimulationRepository repository;
     private static final String CPF_NOT_FOUND = "CPF {0} not found";
 
-    public SimulationController(SimulationRepository repository) {
+    public SimulationsController(SimulationRepository repository) {
         this.repository = repository;
     }
 

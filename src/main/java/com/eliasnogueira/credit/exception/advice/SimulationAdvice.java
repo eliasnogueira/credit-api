@@ -38,7 +38,7 @@ public class SimulationAdvice {
     @ResponseBody
     @ExceptionHandler(SimulationException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    MessageDto simulationHandler(SimulationException e) {
+    MessageDto simulatorHandler(SimulationException e) {
         return new MessageDto(e.toString());
     }
 }
