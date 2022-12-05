@@ -25,15 +25,16 @@
 package com.eliasnogueira.credit;
 
 import com.eliasnogueira.credit.entity.Restriction;
-import com.eliasnogueira.credit.entity.Simulator;
+import com.eliasnogueira.credit.entity.Simulation;
 import com.eliasnogueira.credit.entity.Type;
 import com.eliasnogueira.credit.repository.RestrictionRepository;
-import com.eliasnogueira.credit.repository.SimulatorRepository;
-import java.math.BigDecimal;
-import java.util.HashMap;
+import com.eliasnogueira.credit.repository.SimulationRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.math.BigDecimal;
+import java.util.Map;
 
 @Configuration
 public class LoadDatabase {
@@ -41,33 +42,30 @@ public class LoadDatabase {
     @Bean
     CommandLineRunner initCreditDatabase(RestrictionRepository restrictionRepository) {
         return args -> dataToInsert()
-            .forEach((cpf, restriction) -> restrictionRepository.save(new Restriction(cpf, restriction)));
+                .forEach((cpf, restriction) -> restrictionRepository.save(new Restriction(cpf, restriction)));
     }
 
-    private HashMap<String, String> dataToInsert() {
-        HashMap<String, String> data = new HashMap<>();
-
-        data.put("97093236014", Type.JUDICIAL_ISSUE.value());
-        data.put("60094146012", Type.CREDIT_CARD.value());
-        data.put("84809766080", Type.BANKING.value());
-        data.put("62648716050", Type.CREDIT_SCORE.value());
-        data.put("26276298085", Type.CREDIT_SCORE.value());
-        data.put("01317496094", Type.CREDIT_CARD.value());
-        data.put("55856777050", Type.BANKING.value());
-        data.put("19626829001", Type.JUDICIAL_ISSUE.value());
-        data.put("24094592008", Type.BANKING.value());
-        data.put("58063164083", Type.BANKING.value());
-
-        return data;
+    private Map<String, String> dataToInsert() {
+        return Map.of(
+                "97093236014", Type.JUDICIAL_ISSUE.get(),
+                "60094146012", Type.CREDIT_CARD.get(),
+                "84809766080", Type.BANKING.get(),
+                "62648716050", Type.CREDIT_SCORE.get(),
+                "26276298085", Type.CREDIT_SCORE.get(),
+                "01317496094", Type.CREDIT_CARD.get(),
+                "55856777050", Type.BANKING.get(),
+                "19626829001", Type.JUDICIAL_ISSUE.get(),
+                "24094592008", Type.BANKING.get(),
+                "58063164083", Type.BANKING.get());
     }
 
     @Bean
-    CommandLineRunner initRestrictionDatabase(SimulatorRepository simulatorRepository) {
+    CommandLineRunner initRestrictionDatabase(SimulationRepository simulationRepository) {
         return args -> {
-            simulatorRepository.save(Simulator.builder().cpf("66414919004").name("Tom").email("tom@gmail.com")
-                .amount(new BigDecimal(11000)).installments(3).insurance(true).build());
-            simulatorRepository.save(Simulator.builder().cpf("17822386034").name("Dick").email("dick@gmail.com")
-                .amount(new BigDecimal(20000)).installments(5).insurance(false).build());
+            simulationRepository.save(Simulation.builder().cpf("66414919004").name("Tom").email("tom@gmail.com")
+                    .amount(new BigDecimal(11000)).installments(3).insurance(true).build());
+            simulationRepository.save(Simulation.builder().cpf("17822386034").name("Dick").email("dick@gmail.com")
+                    .amount(new BigDecimal(20000)).installments(5).insurance(false).build());
         };
     }
 }
