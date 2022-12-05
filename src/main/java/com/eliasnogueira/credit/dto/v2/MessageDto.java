@@ -24,21 +24,5 @@
 
 package com.eliasnogueira.credit.dto.v2;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ApiModel(value = "Message v2")
-public class MessageDto {
-
-    @ApiModelProperty(position = 0, required = true, example = "CPF 999999999 not found")
-    private String returnMessage;
-
-    @ApiModelProperty(position = 1, required = true, example = "Judicial")
-    private String detail;
+public record MessageDto(String returnMessage, String detail) {
 }
