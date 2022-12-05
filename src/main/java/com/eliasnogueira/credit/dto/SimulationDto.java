@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Elias Nogueira
+ * Copyright (c) today.year Elias Nogueira
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,19 +22,24 @@
  * SOFTWARE.
  */
 
-package com.eliasnogueira.credit.dto.v2;
+package com.eliasnogueira.credit.dto;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
-@ApiModel(value = "Restriction v2")
-public class RestrictionDto {
+@AllArgsConstructor
+public class SimulationDto {
 
-    @ApiModelProperty(required = true, example = "99999999999")
+    @JsonIgnore
+    private Long id;
     private String cpf;
-
-    @ApiModelProperty(position = 1, required = true, example = "Judicial")
-    private String type;
+    private String name;
+    private String email;
+    private BigDecimal amount;
+    private Integer installments;
+    private Boolean insurance;
 }
