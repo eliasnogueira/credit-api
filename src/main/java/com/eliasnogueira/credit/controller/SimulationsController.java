@@ -26,10 +26,8 @@ package com.eliasnogueira.credit.controller;
 
 import com.eliasnogueira.credit.dto.SimulationDto;
 import com.eliasnogueira.credit.entity.Simulation;
-import com.eliasnogueira.credit.exception.SimulationByNameNotFoundException;
 import com.eliasnogueira.credit.exception.SimulationException;
 import com.eliasnogueira.credit.repository.SimulationRepository;
-import lombok.SneakyThrows;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -49,11 +47,10 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.text.MessageFormat;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
-
-import static java.text.MessageFormat.format;
 
 @RestController
 @RequestMapping("/api/v1/simulations")
@@ -67,30 +64,31 @@ public class SimulationsController {
     }
 
     @GetMapping()
-    @SneakyThrows
-    List<Simulation> getSimulation(@RequestParam(name = "name", required = false) String name) {
+    public List<Simulation> getSimulation(@RequestParam(name = "name", required = false) String name) {
+        List<Simulation> simulationsFound;
+
         Example<Simulation> example =
                 Example.of(Simulation.builder().name(name).build(),
                         ExampleMatcher.matchingAny().
                                 withMatcher("name", ExampleMatcher.GenericPropertyMatchers.contains()));
 
-        List<Simulation> simulationsFound = repository.findAll(example);
+        simulationsFound = repository.findAll(example);
 
-        if (simulationsFound.isEmpty()) throw new SimulationByNameNotFoundException();
+        if (simulationsFound.isEmpty()) throw new SimulationException("Simulation not found!");
 
         return simulationsFound;
     }
 
     @GetMapping("/{cpf}")
-    ResponseEntity<Simulation> one(@PathVariable String cpf) {
+    public ResponseEntity<Simulation> one(@PathVariable String cpf) {
         return repository.findByCpf(cpf).
                 map(simulation -> ResponseEntity.ok().body(simulation)).
-                orElseThrow(() -> new SimulationException(format(CPF_NOT_FOUND, cpf)));
+                orElseThrow(() -> new SimulationException(MessageFormat.format(CPF_NOT_FOUND, cpf)));
     }
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    ResponseEntity<?> newSimulation(@Valid @RequestBody SimulationDto simulation) {
+    public ResponseEntity<URI> newSimulation(@Valid @RequestBody SimulationDto simulation) {
         Simulation createdSimulation = repository.save(new ModelMapper().map(simulation, Simulation.class));
         URI location = ServletUriComponentsBuilder.
                 fromCurrentRequest().
@@ -102,16 +100,17 @@ public class SimulationsController {
     }
 
     @PutMapping("/{cpf}")
-    Simulation updateSimulation(@RequestBody SimulationDto simulation, @PathVariable String cpf) {
+    public Simulation updateSimulation(@RequestBody SimulationDto simulation, @PathVariable String cpf) {
         return update(new ModelMapper().
                 map(simulation, Simulation.class), cpf).
-                orElseThrow(() -> new SimulationException(format(CPF_NOT_FOUND, cpf)));
+                orElseThrow(() -> new SimulationException(MessageFormat.format(CPF_NOT_FOUND, cpf)));
     }
 
     @DeleteMapping("/{cpf}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void delete(@PathVariable String cpf) {
-        if (repository.findByCpf(cpf).isEmpty()) throw new SimulationException(format(CPF_NOT_FOUND, cpf));
+    public void delete(@PathVariable String cpf) {
+        if (repository.findByCpf(cpf).isEmpty())
+            throw new SimulationException(MessageFormat.format(CPF_NOT_FOUND, cpf));
 
         repository.deleteByCpf(cpf);
     }
@@ -124,12 +123,16 @@ public class SimulationsController {
             setIfNotNull(simulation::setEmail, newSimulation.getEmail());
             setIfNotNull(simulation::setInstallments, newSimulation.getInstallments());
             setIfNotNull(simulation::setAmount, newSimulation.getAmount());
+            setIfNotNull(simulation::setInsurance, newSimulation.getInsurance());
 
             return repository.save(simulation);
         });
     }
 
     private <T> void setIfNotNull(final Consumer<T> setter, final T value) {
-        if (value != null) setter.accept(value);
+        if (value != null) {
+            setter.accept(value);
+        }
     }
+
 }

@@ -24,7 +24,12 @@
 
 package com.eliasnogueira.credit.entity;
 
-import java.math.BigDecimal;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -35,11 +40,8 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.validation.constraints.Pattern;
+import java.math.BigDecimal;
 
 @Data
 @Builder(access = AccessLevel.PUBLIC)
@@ -47,7 +49,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(uniqueConstraints = {
-    @UniqueConstraint(name = "cpf_unique", columnNames = "cpf")
+        @UniqueConstraint(name = "cpf_unique", columnNames = "cpf")
 })
 public class Simulation {
 
@@ -65,6 +67,7 @@ public class Simulation {
 
     @NotNull(message = "E-mail cannot be empty")
     @Email
+    @Pattern(regexp = ".+@.+\\.[a-z]+", message = "E-mail must be valid")
     private String email;
 
     @NotNull(message = "Amount cannot be empty")
