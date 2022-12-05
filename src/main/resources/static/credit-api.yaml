@@ -1,37 +1,15 @@
 openapi: 3.0.0
 info:
-  version: 1.0.0
-  description: Query CPF restrictions
-  title: Credit Restriction API
+  version: 1.6.0
+  description: Create credit simulation
+  title: Credit Simulator API
 tags:
-  - name: Restrictions
-    description: Query restrictions
   - name: Simulations
     description: CRUD operations for simulator
+  - name: Restrictions
+    description: Query restrictions
 paths:
-  "/api/v1/restrictions/{cpf}":
-    get:
-      tags:
-        - Restrictions
-      summary: Query to search for a restricted CPF
-      operationId: oneUsingGET
-      parameters:
-        - name: cpf
-          in: path
-          description: CPF to query
-          required: true
-          schema:
-            type: string
-      responses:
-        "200":
-          description: Restiction found
-          content:
-            "application/json":
-              schema:
-                $ref: "#/components/schemas/MessageV1"
-        "404":
-          description: No restrictions
-  /api/v1/simulations:
+  /api/v1/simulations/:
     get:
       tags:
         - Simulations
@@ -42,7 +20,7 @@ paths:
           in: query
           description: Search a simulation by a person name
           required: false
-          allowEmptyValue: false
+          allowEmptyValue: true
           schema:
             type: string
       responses:
@@ -76,6 +54,12 @@ paths:
               description: URI to query the created simulation
               schema:
                 type: string
+        "403":
+          description: CPF has a restriction
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/Message"
         "409":
           description: CPF already exists
         "422":
@@ -153,6 +137,29 @@ paths:
           description: Simulation deleted successfully
         "404":
           description: Simulation not found
+  "/api/v1/restrictions/{cpf}":
+    get:
+      tags:
+        - Restrictions
+      summary: Query to search for a restricted CPF
+      operationId: oneUsingGET
+      parameters:
+        - name: cpf
+          in: path
+          description: CPF to query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Restriction found
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/MessageV1"
+        "404":
+          description: No restrictions
+
   "/api/v2/restrictions/{cpf}":
     get:
       tags:
@@ -187,7 +194,7 @@ components:
         message:
           type: string
           example: CPF 999999999 has a restriction
-      title: Message v1
+      title: MessageV1
     MessageV2:
       type: object
       required:
