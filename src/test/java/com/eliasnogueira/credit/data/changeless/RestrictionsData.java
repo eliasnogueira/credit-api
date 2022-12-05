@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Elias Nogueira
+ * Copyright (c) 2022 Elias Nogueira
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,17 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package com.eliasnogueira.credit.data.changeless;
 
-package com.eliasnogueira.credit.dto.v1;
+public final class RestrictionsData {
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
+    private RestrictionsData() {
+    }
 
-@Data
-@ApiModel(value = "Restriction v1")
-public class RestrictionDto {
-
-    @ApiModelProperty(required = true, example = "99999999999")
-    private String cpf;
+    public static final String SERVICE = "/restrictions";
+    public static final String GET_RESTRICTIONS = String.format("%s/{cpf}", SERVICE);
+    public static final String CPF = "cpf";
 }
