@@ -29,7 +29,7 @@
         <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
 
         <springdoc-openapi-ui.version>1.6.13</springdoc-openapi-ui.version>
-        <modelmapper.version>3.1.0</modelmapper.version>
+        <modelmapper.version>3.1.1</modelmapper.version>
         <lombok.version>1.18.24</lombok.version>
         <hibernate-jpamodelgen.version>6.1.5.Final</hibernate-jpamodelgen.version>
         <jakarta-xml-bind-api.version>4.0.0</jakarta-xml-bind-api.version>
