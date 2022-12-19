@@ -5,7 +5,7 @@ It's a combination of the following projects to facilitate the test automation:
 * [credit-simulation-api](https://github.com/eliasnogueira/credit-simulation-api)
 
 # Required software
-* Java JDK 11+
+* Java JDK 17+
 * Maven installed and in your classpath
 
 # About the API

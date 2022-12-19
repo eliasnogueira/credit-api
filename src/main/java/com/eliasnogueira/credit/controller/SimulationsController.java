@@ -28,6 +28,7 @@ import com.eliasnogueira.credit.dto.SimulationDto;
 import com.eliasnogueira.credit.entity.Simulation;
 import com.eliasnogueira.credit.exception.SimulationException;
 import com.eliasnogueira.credit.repository.SimulationRepository;
+import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -45,7 +46,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.validation.Valid;
 import java.net.URI;
 import java.text.MessageFormat;
 import java.util.List;
