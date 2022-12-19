@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.5</version>
+        <version>3.0.0</version>
     </parent>
 
     <groupId>com.eliasogueira.credit</groupId>
     <artifactId>combined-credit-api</artifactId>
-    <version>1.6.0-SNAPSHOT</version>
+    <version>1.7.0-SNAPSHOT</version>
 
     <distributionManagement>
         <repository>
@@ -28,12 +28,13 @@
         <maven-failsafe.version>3.0.0-M7</maven-failsafe.version>
         <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
 
-        <springdoc-openapi-ui.version>1.6.13</springdoc-openapi-ui.version>
-        <modelmapper.version>3.1.0</modelmapper.version>
+        <springdoc-openapi-starter-webmvc-ui.version>2.0.2</springdoc-openapi-starter-webmvc-ui.version>
+        <modelmapper.version>3.1.1</modelmapper.version>
         <lombok.version>1.18.24</lombok.version>
-        <hibernate-jpamodelgen.version>6.1.5.Final</hibernate-jpamodelgen.version>
+        <hibernate-jpamodelgen.version>6.1.6.Final</hibernate-jpamodelgen.version>
         <jakarta-xml-bind-api.version>4.0.0</jakarta-xml-bind-api.version>
         <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
+        <h2.version>2.1.214</h2.version>
 
         <junit.version>5.9.1</junit.version>
         <restassured.version>5.3.0</restassured.version>
@@ -90,15 +91,16 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derby</artifactId>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
             <scope>runtime</scope>
         </dependency>
 
         <dependency>
             <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
-            <version>${springdoc-openapi-ui.version}</version>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${springdoc-openapi-starter-webmvc-ui.version}</version>
         </dependency>
 
         <dependency>
