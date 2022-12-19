@@ -87,7 +87,7 @@ class SimulationsIntegrationTest extends BaseAPI {
 
         var simulationsRequested =
             when().
-                get("simulations/").
+                get("/simulations").
             then().
                 statusCode(SC_OK).
                 extract().
@@ -170,7 +170,7 @@ class SimulationsIntegrationTest extends BaseAPI {
             contentType(ContentType.JSON).
             body(existingSimulation).
         when().
-            post("/simulations/").
+            post("/simulations").
         then().
             statusCode(SC_CONFLICT).
             body("message", is("CPF already exists"));
