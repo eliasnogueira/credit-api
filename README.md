@@ -5,7 +5,7 @@ It's a combination of the following projects to facilitate the test automation:
 * [credit-simulation-api](https://github.com/eliasnogueira/credit-simulation-api)
 
 # Required software
-* Java JDK 11+
+* Java JDK 17+
 * Maven installed and in your classpath
 
 # About the API
@@ -31,7 +31,7 @@ mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=<NEW_PORT>
 ```
 
 ## How to access the documentation (Swagger)
-After the application has started open the link: http://localhost:8088/swagger-ui/index.html
+After the application has started open the link: http://localhost:8088/swagger-ui.html
 
 ## How to access the production endpoint
 It's not really a production environment, but the API is also deployed on Heroku.
