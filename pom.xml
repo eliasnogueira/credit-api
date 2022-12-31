@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.0</version>
+        <version>3.0.1</version>
     </parent>
 
     <groupId>com.eliasogueira.credit</groupId>
     <artifactId>combined-credit-api</artifactId>
-    <version>1.7.1-SNAPSHOT</version>
+    <version>1.8.1-SNAPSHOT</version>
 
     <distributionManagement>
         <repository>
@@ -35,6 +35,7 @@
         <jakarta-xml-bind-api.version>4.0.0</jakarta-xml-bind-api.version>
         <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
         <h2.version>2.1.214</h2.version>
+        <jib.version>3.3.1</jib.version>
 
         <!-- security library updates -->
         <commons-codec.version>1.15</commons-codec.version>
@@ -42,7 +43,7 @@
         <guava.version>31.1-jre</guava.version>
         <jcommander.version>1.82</jcommander.version>
 
-        <start-class>com.eliasnogueira.credit.simulator.Run</start-class>
+        <start-class>com.eliasnogueira.credit.CreditApiApplication</start-class>
     </properties>
 
     <dependencies>
@@ -170,6 +171,20 @@
                     <release>${java.version}</release>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>${jib.version}</version>
+                <configuration>
+                    <to>
+                        <image>eliasnogueira/${project.name}:${project.version}</image>
+                        <tags>
+                            <tag>latest</tag>
+                        </tags>
+                    </to>
                 </configuration>
             </plugin>
         </plugins>
