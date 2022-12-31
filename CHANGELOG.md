@@ -8,9 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - `jvm.config` to remove Maven verbosity
+- `Dockerfile` to generate a container
 
 ### Changed
 - Fixed `start-class` property value in `pom.xml`
+- Bump `spring-boot-starter-parent -> 3.0.1`
+- Added `jib-maven-plugin` to push the project as a docker image
 
 ## [1.8.0] - 20-12-2022
 
