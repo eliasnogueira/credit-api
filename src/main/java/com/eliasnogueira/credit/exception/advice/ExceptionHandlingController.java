@@ -28,7 +28,6 @@ import com.eliasnogueira.credit.dto.v1.MessageDto;
 import com.eliasnogueira.credit.dto.ValidationDto;
 import java.util.HashMap;
 import java.util.Map;
-
 import jakarta.persistence.RollbackException;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;

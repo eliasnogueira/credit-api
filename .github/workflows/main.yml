@@ -14,14 +14,16 @@ jobs:
         with:
           distribution: adopt
           java-version: 17
+
       - name: Cache Maven packages
         uses: actions/cache@v3
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
+
       - name: Build with Maven
-        run: mvn -DskipTests -B package --file pom.xml
+        run: mvn -B -DskipTests package --file pom.xml
   artifact:
     name: Publish Artifact
     runs-on: ubuntu-latest
@@ -32,8 +34,10 @@ jobs:
         with:
           distribution: adopt
           java-version: 17
+
       - name: Removing -SNAPSHOT
         run: mvn versions:set -DremoveSnapshot
+
       - name: Publish artifact on GitHub Packages
         run: mvn -B clean deploy -DskipTests
         env:
