@@ -111,7 +111,7 @@ public class SimulationDataFactory {
 
     public Simulation simulationWithNotValidEmail() {
         var simulationWithNotValidEmail = validSimulation();
-        simulationWithNotValidEmail.setEmail(faker.name().username());
+        simulationWithNotValidEmail.setEmail(faker.name().username() + "@");
 
         log.info(simulationWithNotValidEmail);
         return simulationWithNotValidEmail;
@@ -131,21 +131,6 @@ public class SimulationDataFactory {
 
         log.info(simulationWithEmptyName);
         return simulationWithEmptyName;
-    }
-
-    public Simulation missingAllInformation() {
-        var simulationWithMissingInfo =
-                Simulation.builder().
-                        cpf(StringUtils.EMPTY).
-                        name(StringUtils.EMPTY).
-                        email(faker.name().username()).
-                        amount(new BigDecimal(faker.number().numberBetween(1, MIN_AMOUNT - 1))).
-                        installments(MIN_INSTALLMENTS - 1).
-                        insurance(faker.bool().bool()).
-                        build();
-
-        log.info(simulationWithMissingInfo);
-        return simulationWithMissingInfo;
     }
 
     private List<Simulation> allSimulationsFromApi() {
