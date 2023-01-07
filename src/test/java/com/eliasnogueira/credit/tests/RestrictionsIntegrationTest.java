@@ -13,7 +13,6 @@ import static org.apache.http.HttpStatus.SC_NOT_FOUND;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.CoreMatchers.is;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class RestrictionsIntegrationTest extends BaseAPI {
 
     private final RestrictionDataFactory restrictionDataFactory = new RestrictionDataFactory();

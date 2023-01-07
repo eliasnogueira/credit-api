@@ -146,7 +146,6 @@ class SimulationsIntegrationTest extends BaseAPI {
             header("Location",
                     equalTo("http://localhost:8088/api/v1/simulations/" + simulation.getCpf()));
     }
-
     
     @ParameterizedTest(name = "Scenario: {2}")
     @MethodSource(value = FAILED_VALIDATION)
