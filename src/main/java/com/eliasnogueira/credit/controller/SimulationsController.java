@@ -25,11 +25,15 @@
 package com.eliasnogueira.credit.controller;
 
 import com.eliasnogueira.credit.dto.SimulationDto;
+import com.eliasnogueira.credit.dto.v1.MessageDto;
 import com.eliasnogueira.credit.entity.Simulation;
+import com.eliasnogueira.credit.exception.RestTemplateErrorHandler;
 import com.eliasnogueira.credit.exception.SimulationException;
 import com.eliasnogueira.credit.repository.SimulationRepository;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
@@ -44,6 +48,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -52,15 +58,19 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
+import static java.lang.String.*;
+
 @RestController
 @RequestMapping("/api/v1/simulations")
 public class SimulationsController {
 
     private final SimulationRepository repository;
+    private final Environment env;
     private static final String CPF_NOT_FOUND = "CPF {0} not found";
 
-    public SimulationsController(SimulationRepository repository) {
+    public SimulationsController(SimulationRepository repository, Environment env) {
         this.repository = repository;
+        this.env = env;
     }
 
     @GetMapping()
@@ -89,6 +99,8 @@ public class SimulationsController {
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<URI> newSimulation(@Valid @RequestBody SimulationDto simulation) {
+        checkForRestriction(simulation.getCpf());
+
         Simulation createdSimulation = repository.save(new ModelMapper().map(simulation, Simulation.class));
         URI location = ServletUriComponentsBuilder.
                 fromCurrentRequest().
@@ -135,4 +147,12 @@ public class SimulationsController {
         }
     }
 
+    private void checkForRestriction(String cpf) throws SimulationException {
+        RestTemplate template = new RestTemplateBuilder().errorHandler(new RestTemplateErrorHandler()).build();
+
+        String restrictionsEndpoint = format("%s:%s%s", "https://localhost", env.getProperty("port"), "/v1/restrictions");
+
+        var response = template.getForObject(restrictionsEndpoint, MessageDto.class, cpf);
+        if (response != null) throw new ResponseStatusException(HttpStatus.FORBIDDEN, response.message());
+    }
 }
