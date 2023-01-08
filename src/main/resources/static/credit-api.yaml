@@ -59,7 +59,7 @@ paths:
           content:
             "application/json":
               schema:
-                $ref: "#/components/schemas/Message"
+                $ref: "#/components/schemas/MessageV1"
         "409":
           description: CPF already exists
         "422":
