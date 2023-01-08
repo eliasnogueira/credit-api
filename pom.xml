@@ -165,12 +165,14 @@
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>${assertj.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>net.datafaker</groupId>
             <artifactId>datafaker</artifactId>
             <version>${datafaker.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- enforcement the usage of this libraries due to the inner usage with vulnerabilities -->
