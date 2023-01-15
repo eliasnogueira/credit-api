@@ -73,7 +73,7 @@ public class SimulationsController {
         this.env = env;
     }
 
-    @GetMapping()
+    @GetMapping("/")
     public List<Simulation> getSimulation(@RequestParam(name = "name", required = false) String name) {
         List<Simulation> simulationsFound;
 
