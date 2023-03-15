@@ -28,7 +28,7 @@
         <maven-failsafe.version>3.0.0-M7</maven-failsafe.version>
         <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
 
-        <springdoc-openapi-starter-webmvc-ui.version>2.0.2</springdoc-openapi-starter-webmvc-ui.version>
+        <springdoc-openapi-starter-webmvc-ui.version>2.0.4</springdoc-openapi-starter-webmvc-ui.version>
         <modelmapper.version>3.1.1</modelmapper.version>
         <lombok.version>1.18.24</lombok.version>
         <hibernate-jpamodelgen.version>6.1.6.Final</hibernate-jpamodelgen.version>
