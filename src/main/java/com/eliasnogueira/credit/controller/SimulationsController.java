@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) today.year Elias Nogueira
+ * Copyright (c) 2020 Elias Nogueira
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,11 +25,13 @@
 package com.eliasnogueira.credit.controller;
 
 import com.eliasnogueira.credit.dto.SimulationDto;
+import com.eliasnogueira.credit.entity.EventType;
 import com.eliasnogueira.credit.dto.v1.MessageDto;
 import com.eliasnogueira.credit.entity.Simulation;
 import com.eliasnogueira.credit.exception.RestTemplateErrorHandler;
 import com.eliasnogueira.credit.exception.SimulationException;
 import com.eliasnogueira.credit.repository.SimulationRepository;
+import com.eliasnogueira.credit.service.EventService;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -66,11 +68,14 @@ import static java.net.InetAddress.getLoopbackAddress;
 public class SimulationsController {
 
     private final SimulationRepository repository;
+    private final EventService eventService;
+
     private final Environment env;
     private static final String CPF_NOT_FOUND = "CPF {0} not found";
 
-    public SimulationsController(SimulationRepository repository, Environment env) {
+    public SimulationsController(SimulationRepository repository, EventService eventService, Environment env) {
         this.repository = repository;
+        this.eventService = eventService;
         this.env = env;
     }
 
@@ -109,6 +114,7 @@ public class SimulationsController {
                 buildAndExpand(createdSimulation.getCpf()).
                 toUri();
 
+        eventService.addEvent(simulation.getCpf(), EventType.SUBMITTED);
         return ResponseEntity.created(location).build();
     }
 
@@ -125,6 +131,7 @@ public class SimulationsController {
         if (repository.findByCpf(cpf).isEmpty())
             throw new SimulationException(MessageFormat.format(CPF_NOT_FOUND, cpf));
 
+        eventService.addEvent(cpf, EventType.DELETED);
         repository.deleteByCpf(cpf);
     }
 

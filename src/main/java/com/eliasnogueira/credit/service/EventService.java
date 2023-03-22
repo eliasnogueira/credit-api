@@ -22,25 +22,37 @@
  * SOFTWARE.
  */
 
-package com.eliasnogueira.credit.exception;
+package com.eliasnogueira.credit.service;
 
-import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.stereotype.Component;
-import org.springframework.web.client.ResponseErrorHandler;
+import com.eliasnogueira.credit.entity.EventType;
+import com.eliasnogueira.credit.entity.EventStore;
+import com.eliasnogueira.credit.repository.EventRepository;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Service;
 
-import java.io.IOException;
+@Service("eventService")
+public class EventService {
 
-@Component
-public class RestTemplateErrorHandler implements ResponseErrorHandler {
+    private final EventRepository eventRepository;
 
-    // ignoring when there's no restrictions 404 is returned
-    @Override
-    public boolean hasError(ClientHttpResponse response) throws IOException {
-        return response.getStatusCode().value() != 404;
+    public EventService(EventRepository eventRepository) {
+        this.eventRepository = eventRepository;
     }
 
-    @Override
-    public void handleError(ClientHttpResponse response) {
-        // do nothing
+    @Async
+    public void addEvent(String cpf, EventType eventType) {
+        EventStore eventStore = null;
+
+        try {
+        eventStore = new EventStore();
+        eventStore.setCpf(cpf);
+        eventStore.setEventType(eventType);
+
+        Thread.sleep(7000); // intentionally add to add a delay to log the event
+
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        eventRepository.save(eventStore);
     }
 }

@@ -24,9 +24,11 @@
 
 package com.eliasnogueira.credit.controller;
 
+import com.eliasnogueira.credit.entity.EventType;
 import com.eliasnogueira.credit.entity.Restriction;
 import com.eliasnogueira.credit.exception.v2.RestrictionException;
 import com.eliasnogueira.credit.service.RestrictionService;
+import com.eliasnogueira.credit.service.EventService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,10 +41,12 @@ import java.util.Optional;
 public class RestrictionsController {
 
     private final RestrictionService restrictionService;
+    private final EventService eventService;
     private static final String CPF_HAS_RESTRICTIONS = "CPF {0} has a restriction";
 
-    public RestrictionsController(RestrictionService restrictionService) {
+    public RestrictionsController(RestrictionService restrictionService, EventService eventService) {
         this.restrictionService = restrictionService;
+        this.eventService = eventService;
     }
 
     @GetMapping("/api/v1/restrictions/{cpf}")
@@ -50,6 +54,7 @@ public class RestrictionsController {
         Optional<Restriction> restrictionOptional = restrictionService.findByCpf(cpf);
 
         if (restrictionOptional.isPresent()) {
+            eventService.addEvent(cpf, EventType.REJECTED);
             throw new com.eliasnogueira.credit.exception.v1.RestrictionException(
                     MessageFormat.format(CPF_HAS_RESTRICTIONS, cpf));
         }
@@ -62,6 +67,7 @@ public class RestrictionsController {
         Optional<Restriction> restrictionOptional = restrictionService.findByCpf(cpf);
 
         if (restrictionOptional.isPresent()) {
+            eventService.addEvent(cpf, EventType.REJECTED);
             throw new RestrictionException(
                     MessageFormat.format(CPF_HAS_RESTRICTIONS, cpf),
                     restrictionOptional.get().getType());

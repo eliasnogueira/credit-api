@@ -22,25 +22,9 @@
  * SOFTWARE.
  */
 
-package com.eliasnogueira.credit.exception;
+package com.eliasnogueira.credit.entity;
 
-import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.stereotype.Component;
-import org.springframework.web.client.ResponseErrorHandler;
+public enum EventType {
 
-import java.io.IOException;
-
-@Component
-public class RestTemplateErrorHandler implements ResponseErrorHandler {
-
-    // ignoring when there's no restrictions 404 is returned
-    @Override
-    public boolean hasError(ClientHttpResponse response) throws IOException {
-        return response.getStatusCode().value() != 404;
-    }
-
-    @Override
-    public void handleError(ClientHttpResponse response) {
-        // do nothing
-    }
+    REJECTED, SUBMITTED, DELETED
 }

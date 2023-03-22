@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) today.year Elias Nogueira
+ * Copyright (c) 2020 Elias Nogueira
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

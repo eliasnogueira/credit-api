@@ -27,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.8.2] - 08-01-2023
 
 ### Added
-- `RestTemplateErrorHandler` to control de errors and HTTP status when check for the restrictions
+- `RestTemplateErrorHandler` to control de errors and HTTP eventType when check for the restrictions
 
 ### Changed
 - `SimulationsController` checking for a restriction before sending the `POST` request

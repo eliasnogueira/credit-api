@@ -22,25 +22,15 @@
  * SOFTWARE.
  */
 
-package com.eliasnogueira.credit.exception;
+package com.eliasnogueira.credit.repository;
 
-import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.stereotype.Component;
-import org.springframework.web.client.ResponseErrorHandler;
+import com.eliasnogueira.credit.entity.EventStore;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 
-import java.io.IOException;
+import java.util.Optional;
 
-@Component
-public class RestTemplateErrorHandler implements ResponseErrorHandler {
+public interface EventRepository extends JpaRepository<EventStore, Long> {
 
-    // ignoring when there's no restrictions 404 is returned
-    @Override
-    public boolean hasError(ClientHttpResponse response) throws IOException {
-        return response.getStatusCode().value() != 404;
-    }
-
-    @Override
-    public void handleError(ClientHttpResponse response) {
-        // do nothing
-    }
+    Optional<EventStore> findByCpf(@Param("cpf") String cpf);
 }

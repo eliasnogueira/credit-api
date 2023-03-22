@@ -24,7 +24,6 @@
 
 package com.eliasnogueira.credit.repository;
 
-
 import com.eliasnogueira.credit.entity.Restriction;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;

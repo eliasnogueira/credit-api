@@ -27,15 +27,33 @@ package com.eliasnogueira.credit;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+
+import java.util.concurrent.Executor;
 
 @SpringBootApplication
 @EnableJpaRepositories
+@EnableAsync
 @Log4j2
 public class CreditApiApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(CreditApiApplication.class, args);
         log.info("Application has started! Happy tests!");
+    }
+
+    @Bean
+    public Executor asyncExecutor() {
+        var executor = new ThreadPoolTaskExecutor();
+        executor.setCorePoolSize(2);
+        executor.setMaxPoolSize(2);
+        executor.setQueueCapacity(500);
+        executor.setThreadNamePrefix("sync-");
+        executor.initialize();
+
+        return executor;
     }
 }

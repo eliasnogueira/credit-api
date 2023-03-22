@@ -24,23 +24,19 @@
 
 package com.eliasnogueira.credit.exception;
 
-import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.stereotype.Component;
-import org.springframework.web.client.ResponseErrorHandler;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-import java.io.IOException;
+@Data
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+public class EventException extends RuntimeException {
 
-@Component
-public class RestTemplateErrorHandler implements ResponseErrorHandler {
-
-    // ignoring when there's no restrictions 404 is returned
-    @Override
-    public boolean hasError(ClientHttpResponse response) throws IOException {
-        return response.getStatusCode().value() != 404;
-    }
+    private final String message;
 
     @Override
-    public void handleError(ClientHttpResponse response) {
-        // do nothing
+    public String toString() {
+        return message;
     }
 }

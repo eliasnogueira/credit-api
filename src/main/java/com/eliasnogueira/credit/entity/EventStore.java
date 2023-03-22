@@ -22,25 +22,31 @@
  * SOFTWARE.
  */
 
-package com.eliasnogueira.credit.exception;
+package com.eliasnogueira.credit.entity;
 
-import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.stereotype.Component;
-import org.springframework.web.client.ResponseErrorHandler;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Data;
 
-import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
-@Component
-public class RestTemplateErrorHandler implements ResponseErrorHandler {
+@Data
+@Entity
+public class EventStore {
 
-    // ignoring when there's no restrictions 404 is returned
-    @Override
-    public boolean hasError(ClientHttpResponse response) throws IOException {
-        return response.getStatusCode().value() != 404;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID eventId;
 
-    @Override
-    public void handleError(ClientHttpResponse response) {
-        // do nothing
-    }
+    private String cpf;
+
+    @Enumerated(EnumType.STRING)
+    private EventType eventType;
+
+    private LocalDateTime eventDate = LocalDateTime.now();
 }
