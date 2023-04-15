@@ -50,8 +50,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class SimulationsIntegrationTest extends BaseAPI {
 
-    protected final SimulationDataFactory simulationDataFactory = new SimulationDataFactory();
-
     private static final String FAILED_VALIDATION =
         "com.eliasnogueira.credit.data.provider.SimulationDataProvider#failedValidations";
 
@@ -62,7 +60,7 @@ class SimulationsIntegrationTest extends BaseAPI {
     @Test
     @DisplayName("Should validate one existing simulation")
     void getOneExistingSimulation() {
-        var existingSimulation = simulationDataFactory.oneExistingSimulation();
+        var existingSimulation = SimulationDataFactory.oneExistingSimulation();
 
         given().
             pathParam("cpf", existingSimulation.getCpf()).
@@ -83,7 +81,7 @@ class SimulationsIntegrationTest extends BaseAPI {
     @Test
     @DisplayName("Should validate all existing simulations")
     void getAllExistingSimulations() {
-        var existingSimulations = simulationDataFactory.allExistingSimulations();
+        var existingSimulations = SimulationDataFactory.allExistingSimulations();
 
         var simulationsRequested =
             when().
@@ -100,7 +98,7 @@ class SimulationsIntegrationTest extends BaseAPI {
     @DisplayName("Should filter by name a non-existing simulation")
     void simulationByNameNotFound() {
         given().
-            queryParam("name", simulationDataFactory.nonExistentName()).
+            queryParam("name", SimulationDataFactory.nonExistentName()).
         when().
             get("/simulations").
         then().
@@ -110,7 +108,7 @@ class SimulationsIntegrationTest extends BaseAPI {
     @Test
     @DisplayName("Should find a simulation filtered by name")
     void returnSimulationByName() {
-        var existingSimulation = simulationDataFactory.oneExistingSimulation();
+        var existingSimulation = SimulationDataFactory.oneExistingSimulation();
 
         given().
             queryParam("name", existingSimulation.getName()).
@@ -134,7 +132,7 @@ class SimulationsIntegrationTest extends BaseAPI {
     @Test
     @DisplayName("Should create a new simulation")
     void createNewSimulationSuccessfully() {
-        var simulation = simulationDataFactory.validSimulation();
+        var simulation = SimulationDataFactory.validSimulation();
 
         given().
             contentType(ContentType.JSON).
@@ -164,7 +162,7 @@ class SimulationsIntegrationTest extends BaseAPI {
     @Test
     @DisplayName("Should validate an CFP duplication")
     void simulationWithDuplicatedCpf() {
-        var existingSimulation = simulationDataFactory.oneExistingSimulation();
+        var existingSimulation = SimulationDataFactory.oneExistingSimulation();
         given().
             contentType(ContentType.JSON).
             body(existingSimulation).
@@ -178,7 +176,7 @@ class SimulationsIntegrationTest extends BaseAPI {
     @Test
     @DisplayName("Should delete an existing simulation")
     void deleteSimulationSuccessfully() {
-        var existingSimulation = simulationDataFactory.oneExistingSimulation();
+        var existingSimulation = SimulationDataFactory.oneExistingSimulation();
 
         given().
             pathParam("cpf", existingSimulation.getCpf()).
@@ -192,7 +190,7 @@ class SimulationsIntegrationTest extends BaseAPI {
     @DisplayName("Should validate the return when a non-existent simulation is sent")
     void notFoundWhenDeleteSimulation() {
         given().
-            pathParam("cpf", simulationDataFactory.notExistentCpf()).
+            pathParam("cpf", SimulationDataFactory.notExistentCpf()).
         when().
             delete("/simulations/{cpf}").
         then().
@@ -202,9 +200,9 @@ class SimulationsIntegrationTest extends BaseAPI {
     @Test
     @DisplayName("Should update an existing simulation")
     void changeSimulationSuccessfully() {
-        var existingSimulation = simulationDataFactory.oneExistingSimulation();
+        var existingSimulation = SimulationDataFactory.oneExistingSimulation();
 
-        var simulation = simulationDataFactory.validSimulation();
+        var simulation = SimulationDataFactory.validSimulation();
         simulation.setCpf(existingSimulation.getCpf());
         simulation.setInsurance(existingSimulation.getInsurance());
 
@@ -227,11 +225,11 @@ class SimulationsIntegrationTest extends BaseAPI {
     @Test
     @DisplayName("Should validate the return of an update for a non-existent CPF")
     void changeSimulationCpfNotFound() {
-        var simulation = simulationDataFactory.validSimulation();
+        var simulation = SimulationDataFactory.validSimulation();
 
         given().
             contentType(ContentType.JSON).
-            pathParam("cpf", simulationDataFactory.notExistentCpf()).
+            pathParam("cpf", SimulationDataFactory.notExistentCpf()).
             body(simulation).
         when().
             put("/simulations/{cpf}").

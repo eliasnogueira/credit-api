@@ -37,7 +37,7 @@ import java.util.List;
 
 import static io.restassured.RestAssured.when;
 
-public class SimulationDataFactory {
+public final class SimulationDataFactory {
 
     private static final Logger log = LogManager.getLogger(SimulationDataFactory.class);
 
@@ -45,27 +45,27 @@ public class SimulationDataFactory {
     private static final int MAX_AMOUNT = 40000;
     private static final int MIN_INSTALLMENTS = 2;
     private static final int MAX_INSTALLMENTS = 48;
-    private final Faker faker = new Faker();
+    private static final Faker faker = new Faker();
 
-    public String nonExistentName() {
+    public static String nonExistentName() {
         String nonExistentName = faker.name().firstName();
 
         log.info("Non existent name in use: {}", nonExistentName);
         return nonExistentName;
     }
 
-    public String notExistentCpf() {
+    public static String notExistentCpf() {
         String nonExistentCpf = faker.cpf().valid();
 
         log.info("Not existent CPF in use: {}", nonExistentCpf);
         return nonExistentCpf;
     }
 
-    public Simulation validSimulation() {
+    public static Simulation validSimulation() {
         return newSimulation();
     }
 
-    public Simulation oneExistingSimulation() {
+    public static Simulation oneExistingSimulation() {
         var simulations = allSimulationsFromApi();
         Simulation oneExistingSimulation = simulations.get(new SecureRandom().nextInt(simulations.size()));
 
@@ -73,11 +73,11 @@ public class SimulationDataFactory {
         return oneExistingSimulation;
     }
 
-    public List<Simulation> allExistingSimulations() {
+    public static List<Simulation> allExistingSimulations() {
         return allSimulationsFromApi();
     }
 
-    public Simulation simulationLessThanMinAmount() {
+    public static Simulation simulationLessThanMinAmount() {
         var simulationLessThanMinAmount = validSimulation();
         simulationLessThanMinAmount.setAmount(new BigDecimal(faker.number().numberBetween(1, MIN_AMOUNT - 1)));
 
@@ -85,7 +85,7 @@ public class SimulationDataFactory {
         return simulationLessThanMinAmount;
     }
 
-    public Simulation simulationExceedAmount() {
+    public static Simulation simulationExceedAmount() {
         var simulationExceedAmount = validSimulation();
         simulationExceedAmount.setAmount(new BigDecimal(faker.number().numberBetween(MAX_AMOUNT + 1, 99999)));
 
@@ -93,7 +93,7 @@ public class SimulationDataFactory {
         return simulationExceedAmount;
     }
 
-    public Simulation simulationLessThanMinInstallments() {
+    public static Simulation simulationLessThanMinInstallments() {
         var simulationLessThanMinInstallments = validSimulation();
         simulationLessThanMinInstallments.setInstallments(MIN_INSTALLMENTS - 1);
 
@@ -101,7 +101,7 @@ public class SimulationDataFactory {
         return simulationLessThanMinInstallments;
     }
 
-    public Simulation simulationExceedInstallments() {
+    public static Simulation simulationExceedInstallments() {
         var simulationExceedInstallments = validSimulation();
         simulationExceedInstallments.setInstallments(faker.number().numberBetween(MAX_INSTALLMENTS + 1, 999));
 
@@ -109,7 +109,7 @@ public class SimulationDataFactory {
         return simulationExceedInstallments;
     }
 
-    public Simulation simulationWithNotValidEmail() {
+    public static Simulation simulationWithNotValidEmail() {
         var simulationWithNotValidEmail = validSimulation();
         simulationWithNotValidEmail.setEmail(faker.name().username() + "@");
 
@@ -117,7 +117,7 @@ public class SimulationDataFactory {
         return simulationWithNotValidEmail;
     }
 
-    public Simulation simulationWithEmptyCPF() {
+    public static Simulation simulationWithEmptyCPF() {
         var simulationWithEmptyCPF = validSimulation();
         simulationWithEmptyCPF.setCpf(StringUtils.EMPTY);
 
@@ -125,7 +125,7 @@ public class SimulationDataFactory {
         return simulationWithEmptyCPF;
     }
 
-    public Simulation simulationWithEmptyName() {
+    public static Simulation simulationWithEmptyName() {
         var simulationWithEmptyName = validSimulation();
         simulationWithEmptyName.setName(StringUtils.EMPTY);
 
@@ -133,7 +133,7 @@ public class SimulationDataFactory {
         return simulationWithEmptyName;
     }
 
-    private List<Simulation> allSimulationsFromApi() {
+    private static List<Simulation> allSimulationsFromApi() {
         var simulations =
                 when()
                     .get("/simulations").
@@ -146,7 +146,7 @@ public class SimulationDataFactory {
         return List.of(simulations);
     }
 
-    private Simulation newSimulation() {
+    private static Simulation newSimulation() {
         var newSimulation =
                 Simulation.builder().
                         name(faker.name().nameWithMiddle()).
