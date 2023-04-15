@@ -59,6 +59,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 import static java.lang.String.*;
+import static java.net.InetAddress.getLoopbackAddress;
 
 @RestController
 @RequestMapping("/api/v1/simulations")
@@ -150,7 +151,8 @@ public class SimulationsController {
     private void checkForRestriction(String cpf) throws SimulationException {
         RestTemplate template = new RestTemplateBuilder().errorHandler(new RestTemplateErrorHandler()).build();
 
-        String restrictionsEndpoint = format("%s:%s%s", "https://localhost", env.getProperty("port"), "/v1/restrictions");
+        String restrictionsEndpoint = format("%s:%s%s",
+                "http://" + getLoopbackAddress().getHostAddress(), env.getProperty("server.port"), "/api/v1/restrictions/{cpf}");
 
         var response = template.getForObject(restrictionsEndpoint, MessageDto.class, cpf);
         if (response != null) throw new ResponseStatusException(HttpStatus.FORBIDDEN, response.message());
