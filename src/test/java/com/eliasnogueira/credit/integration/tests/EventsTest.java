@@ -74,8 +74,6 @@ class EventsTest extends BaseIntegrationApi {
     }
 
     private void checkForRestriction(String cpf) {
-
-
         given().pathParam("cpf", cpf)
                 .when().get("/restrictions/{cpf}")
                 .then().statusCode(SC_OK)
