@@ -28,6 +28,7 @@ import io.restassured.config.SSLConfig;
 import io.restassured.path.json.config.JsonPathConfig.NumberReturnType;
 import org.junit.jupiter.api.BeforeAll;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import static io.restassured.RestAssured.basePath;
 import static io.restassured.RestAssured.baseURI;
@@ -37,6 +38,7 @@ import static io.restassured.config.JsonConfig.jsonConfig;
 import static io.restassured.config.RestAssuredConfig.newConfig;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@ActiveProfiles("test")
 public abstract class BaseAPI {
     @BeforeAll
     public static void beforeAllTests() {
