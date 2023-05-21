@@ -65,7 +65,7 @@ public class ExceptionHandlingController extends ResponseEntityExceptionHandler 
      * Handler to show a custom message when CPF is duplicated
      */
     @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity<MessageDto> dataIntegriyException(DataIntegrityViolationException ex) {
+    public ResponseEntity<MessageDto> dataIntegrityException(DataIntegrityViolationException ex) {
         if (ex.getCause() instanceof org.hibernate.exception.ConstraintViolationException) {
             org.hibernate.exception.ConstraintViolationException constraintViolationException = (org.hibernate.exception.ConstraintViolationException) ex
                 .getCause();
