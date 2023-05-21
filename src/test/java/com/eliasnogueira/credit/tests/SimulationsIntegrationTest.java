@@ -27,12 +27,13 @@ package com.eliasnogueira.credit.tests;
 import com.eliasnogueira.credit.BaseAPI;
 import com.eliasnogueira.credit.data.factory.SimulationDataFactory;
 import com.eliasnogueira.credit.data.model.Simulation;
+import com.eliasnogueira.credit.data.provider.SimulationDataProvider;
 import io.restassured.http.ContentType;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static io.restassured.RestAssured.given;
@@ -49,9 +50,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class SimulationsIntegrationTest extends BaseAPI {
-
-    private static final String FAILED_VALIDATION =
-        "com.eliasnogueira.credit.data.provider.SimulationDataProvider#failedValidations";
 
     /*
      * not that, in order to assert the amount without problem, we must enable a configuration
@@ -146,7 +144,7 @@ class SimulationsIntegrationTest extends BaseAPI {
     }
     
     @ParameterizedTest(name = "Scenario: {2}")
-    @MethodSource(value = FAILED_VALIDATION)
+    @ArgumentsSource(SimulationDataProvider.class)
     @DisplayName("Should validate all the invalid scenarios")
     void invalidSimulations(Simulation invalidSimulation, String path, String validationMessage) {
         given().
