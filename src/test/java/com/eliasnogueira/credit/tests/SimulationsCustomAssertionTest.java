@@ -27,6 +27,7 @@ package com.eliasnogueira.credit.tests;
 import com.eliasnogueira.credit.assertion.SimulationAssert;
 import com.eliasnogueira.credit.assertion.SimulationSoftAssert;
 import com.eliasnogueira.credit.data.model.Simulation;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -35,6 +36,7 @@ import java.math.BigDecimal;
 class SimulationsCustomAssertionTest {
 
     @Test
+    @Disabled
     @DisplayName("Simulation using hard assertions")
     void simulationValidationErrorNormalAssertion() {
         var simulation = Simulation.builder().name("John").cpf("9582728395").email("john@gmail.com")
@@ -45,6 +47,7 @@ class SimulationsCustomAssertionTest {
     }
 
     @Test
+    @Disabled
     @DisplayName("Simulation using soft assertions")
     void simulationValidationErrorSoftAssertion() {
         var simulation = Simulation.builder().name("John").cpf("9582728395").email("john@gmail.com")

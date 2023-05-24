@@ -111,7 +111,7 @@ public final class SimulationDataFactory {
 
     public static Simulation simulationWithNotValidEmail() {
         var simulationWithNotValidEmail = validSimulation();
-        simulationWithNotValidEmail.setEmail(faker.name().username() + "@");
+        simulationWithNotValidEmail.setEmail(faker.name().username() + "@.com");
 
         log.info(simulationWithNotValidEmail);
         return simulationWithNotValidEmail;

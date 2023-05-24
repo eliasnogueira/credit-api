@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.1</version>
+        <version>3.1.0</version>
     </parent>
 
     <groupId>com.eliasogueira.credit</groupId>
@@ -26,21 +26,22 @@
         <java.version>17</java.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven-failsafe.version>3.0.0</maven-failsafe.version>
-        <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.1.0</maven-surefire-plugin.version>
 
-        <springdoc-openapi-starter-webmvc-ui.version>2.0.2</springdoc-openapi-starter-webmvc-ui.version>
+        <springdoc-openapi-starter-webmvc-ui.version>2.1.0</springdoc-openapi-starter-webmvc-ui.version>
         <modelmapper.version>3.1.1</modelmapper.version>
-        <lombok.version>1.18.24</lombok.version>
-        <hibernate-jpamodelgen.version>6.1.6.Final</hibernate-jpamodelgen.version>
+        <lombok.version>1.18.26</lombok.version>
+        <hibernate-jpamodelgen.version>6.2.3.Final</hibernate-jpamodelgen.version>
         <jakarta-xml-bind-api.version>4.0.0</jakarta-xml-bind-api.version>
         <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
         <h2.version>2.1.214</h2.version>
-        <jib.version>3.3.1</jib.version>
+        <jib.version>3.3.2</jib.version>
 
         <junit.version>5.9.3</junit.version>
         <restassured.version>5.3.0</restassured.version>
-        <assertj.version>3.23.1</assertj.version>
-        <datafaker.version>1.7.0</datafaker.version>
+        <assertj.version>3.24.2</assertj.version>
+        <datafaker.version>1.9.0</datafaker.version>
+        <testcontainers.version>1.17.6</testcontainers.version>
 
         <!-- security library updates -->
         <commons-codec.version>1.15</commons-codec.version>
@@ -187,20 +188,34 @@
             </exclusions>
         </dependency>
 
+        <!-- testcontainers -->
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>mysql</artifactId>
-            <version>1.18.0</version>
+            <version>${testcontainers.version}</version>
             <scope>test</scope>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.testcontainers</groupId>-->
-<!--            <artifactId>junit-jupiter</artifactId>-->
-<!--            <version>1.18.0</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${testcontainers.version}</version>
+            <scope>test</scope>
+        </dependency>
 
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.0.33</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${testcontainers.version}</version>
+            <scope>test</scope>
+        </dependency>
 
         <!-- enforcement the usage of this libraries due to the inner usage with vulnerabilities -->
         <dependency>
