@@ -44,11 +44,11 @@ public class EventService {
         EventStore eventStore = null;
 
         try {
-        eventStore = new EventStore();
-        eventStore.setCpf(cpf);
-        eventStore.setEventType(eventType);
+            eventStore = new EventStore();
+            eventStore.setCpf(cpf);
+            eventStore.setEventType(eventType);
 
-        Thread.sleep(7000); // intentionally add to add a delay to log the event
+            Thread.sleep(7000); // intentionally add to add a delay to log the event
 
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
