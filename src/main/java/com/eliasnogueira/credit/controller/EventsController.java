@@ -22,43 +22,28 @@
  * SOFTWARE.
  */
 
-package com.eliasnogueira.credit.service;
+package com.eliasnogueira.credit.controller;
 
-import com.eliasnogueira.credit.entity.EventType;
 import com.eliasnogueira.credit.entity.EventStore;
-import com.eliasnogueira.credit.entity.Restriction;
 import com.eliasnogueira.credit.repository.EventRepository;
-import java.util.Optional;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Service;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
-@Service("eventService")
-public class EventService {
+@RestController
+public class EventsController {
 
     private final EventRepository eventRepository;
 
-    public EventService(EventRepository eventRepository) {
+    public EventsController(EventRepository eventRepository) {
         this.eventRepository = eventRepository;
     }
 
-    @Async
-    public void addEvent(String cpf, EventType eventType) {
-        EventStore eventStore = null;
-
-        try {
-            eventStore = new EventStore();
-            eventStore.setCpf(cpf);
-            eventStore.setEventType(eventType);
-
-            Thread.sleep(7000); // intentionally add to add a delay to log the event
-
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-        eventRepository.save(eventStore);
-    }
-
-    public Optional<EventStore> findByCpf(String cpf) {
-        return eventRepository.findByCpf(cpf);
+    @GetMapping("/api/v1/events/{cpf}")
+    ResponseEntity<EventStore> one(@PathVariable String cpf) {
+        return eventRepository.findByCpf(cpf).
+            map(event -> ResponseEntity.ok().body(event)).
+            orElseThrow(() -> new RuntimeException());
     }
 }

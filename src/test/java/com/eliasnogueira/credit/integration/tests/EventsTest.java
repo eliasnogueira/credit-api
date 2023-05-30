@@ -51,7 +51,7 @@ class EventsTest extends BaseIntegrationApi {
     @Disabled("Test meant to run showing the async call, where the test will fail")
     @DisplayName("Check for an event with a restriction")
     void checkEventWithRestriction_Fail() {
-        String cpf = "26276298085";
+        String cpf = "97093236014";
 
         checkForRestriction(cpf);
 
@@ -61,7 +61,7 @@ class EventsTest extends BaseIntegrationApi {
     @Test
     @DisplayName("Check for an event with a restriction")
     void checkEventWithRestriction_Success() {
-        String cpf = "55856777050";
+        String cpf = "97093236014";
 
         checkForRestriction(cpf);
 
