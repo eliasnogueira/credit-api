@@ -42,7 +42,7 @@ public class SimulationAssert extends AbstractAssert<SimulationAssert, Simulatio
     public SimulationAssert hasValidInstallments() {
         isNotNull();
 
-        if (actual.getInstallments() < 2 || actual.getInstallments() > 48) {
+        if (actual.getInstallments() < 2 || actual.getInstallments() >= 48) {
             failWithMessage("Installments must be must be equal or greater than 2 and equal or less than 48");
         }
 

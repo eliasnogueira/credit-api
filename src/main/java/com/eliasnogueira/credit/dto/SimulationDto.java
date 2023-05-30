@@ -26,10 +26,12 @@ package com.eliasnogueira.credit.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.math.BigDecimal;
 
+@Builder
 @Data
 @AllArgsConstructor
 public class SimulationDto {
