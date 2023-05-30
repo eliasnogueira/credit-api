@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static io.restassured.RestAssured.basePath;
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.config;
+import static io.restassured.RestAssured.enableLoggingOfRequestAndResponseIfValidationFails;
 import static io.restassured.RestAssured.port;
 import static io.restassured.RestAssured.useRelaxedHTTPSValidation;
 import static io.restassured.config.JsonConfig.jsonConfig;
@@ -27,5 +28,6 @@ public abstract class BaseIntegrationApi {
                 sslConfig(new SSLConfig().allowAllHostnames());
 
         useRelaxedHTTPSValidation();
+        enableLoggingOfRequestAndResponseIfValidationFails();
     }
 }
