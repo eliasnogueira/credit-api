@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.6</version>
+        <version>3.1.0</version>
     </parent>
 
     <groupId>com.eliasogueira.credit</groupId>
     <artifactId>combined-credit-api</artifactId>
-    <version>1.8.6-SNAPSHOT</version>
+    <version>1.9.0-SNAPSHOT</version>
 
     <distributionManagement>
         <repository>
@@ -24,23 +24,22 @@
 
     <properties>
         <java.version>17</java.version>
-        <maven-compiler.plugin.version>3.10.1</maven-compiler.plugin.version>
-        <maven-failsafe.version>3.0.0-M7</maven-failsafe.version>
-        <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
+        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>3.1.0</maven-surefire-plugin.version>
 
-        <springdoc-openapi-starter-webmvc-ui.version>2.1.0</springdoc-openapi-starter-webmvc-ui.version>
+        <springdoc-openapi-starter-webmvc-ui.version>2.0.4</springdoc-openapi-starter-webmvc-ui.version>
         <modelmapper.version>3.1.1</modelmapper.version>
-        <lombok.version>1.18.26</lombok.version>
-        <hibernate-jpamodelgen.version>6.2.2.Final</hibernate-jpamodelgen.version>
+        <lombok.version>1.18.28</lombok.version>
+        <hibernate-jpamodelgen.version>6.2.3.Final</hibernate-jpamodelgen.version>
         <jakarta-xml-bind-api.version>4.0.0</jakarta-xml-bind-api.version>
         <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
         <h2.version>2.1.214</h2.version>
-        <jib.version>3.3.1</jib.version>
+        <jib.version>3.3.2</jib.version>
 
         <!-- security library updates -->
         <commons-codec.version>1.15</commons-codec.version>
         <jackson-databind.version>2.15.0</jackson-databind.version>
-        <guava.version>31.1-jre</guava.version>
+        <guava.version>32.0.0-jre</guava.version>
         <jcommander.version>1.82</jcommander.version>
 
         <start-class>com.eliasnogueira.credit.CreditApiApplication</start-class>
