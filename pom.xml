@@ -37,7 +37,7 @@
         <jib.version>3.3.2</jib.version>
 
         <!-- security library updates -->
-        <commons-codec.version>1.15</commons-codec.version>
+        <commons-codec.version>1.16.0</commons-codec.version>
         <jackson-databind.version>2.15.0</jackson-databind.version>
         <guava.version>32.0.0-jre</guava.version>
         <jcommander.version>1.82</jcommander.version>
