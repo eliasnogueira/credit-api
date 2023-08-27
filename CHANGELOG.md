@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.1] - 27-08-2023
+
+### Changed
+- Updated the following libraries
+  - `spring-boot-starter-parent -> 3.1.2`
+  - `springdoc-openapi-starter-webmvc-ui -> 2.2.0`
+  - `h2 -> 2.2.220`
+  - `commons-codec -> 1.16.0`
+  - `jackson-databind -> 2.15.2`
+  - `guava -> 32.1.2-jre`
+
 ## [1.9.0] - 01-06-2023
 
 ### Added
