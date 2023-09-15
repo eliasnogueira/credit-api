@@ -31,7 +31,7 @@
         <modelmapper.version>3.1.1</modelmapper.version>
         <lombok.version>1.18.28</lombok.version>
         <hibernate-jpamodelgen.version>6.2.3.Final</hibernate-jpamodelgen.version>
-        <jakarta-xml-bind-api.version>4.0.0</jakarta-xml-bind-api.version>
+        <jakarta-xml-bind-api.version>4.0.1</jakarta-xml-bind-api.version>
         <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
         <h2.version>2.2.220</h2.version>
         <jib.version>3.3.2</jib.version>
