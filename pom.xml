@@ -12,7 +12,7 @@
 
     <groupId>com.eliasogueira.credit</groupId>
     <artifactId>combined-credit-api</artifactId>
-    <version>1.9.1-SNAPSHOT</version>
+    <version>1.9.2-SNAPSHOT</version>
 
     <distributionManagement>
         <repository>
@@ -30,17 +30,14 @@
         <springdoc-openapi-starter-webmvc-ui.version>2.2.0</springdoc-openapi-starter-webmvc-ui.version>
         <modelmapper.version>3.1.1</modelmapper.version>
         <lombok.version>1.18.28</lombok.version>
-        <hibernate-jpamodelgen.version>6.2.3.Final</hibernate-jpamodelgen.version>
-        <jakarta-xml-bind-api.version>4.0.0</jakarta-xml-bind-api.version>
+        <hibernate-jpamodelgen.version>6.3.0.Final</hibernate-jpamodelgen.version>
+        <jakarta-xml-bind-api.version>4.0.1</jakarta-xml-bind-api.version>
         <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
-        <h2.version>2.2.220</h2.version>
+        <h2.version>2.2.222</h2.version>
         <jib.version>3.3.2</jib.version>
 
         <!-- security library updates -->
-        <commons-codec.version>1.16.0</commons-codec.version>
-        <jackson-databind.version>2.15.2</jackson-databind.version>
-        <guava.version>32.1.2-jre</guava.version>
-        <jcommander.version>1.82</jcommander.version>
+        <snakeyaml.version>2.2</snakeyaml.version>
 
         <start-class>com.eliasnogueira.credit.CreditApiApplication</start-class>
     </properties>
@@ -130,29 +127,13 @@
         </dependency>
 
         <!-- enforcement the usage of this libraries due to the inner usage with vulnerabilities -->
+        <!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
         <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>${commons-codec.version}</version>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>${snakeyaml.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson-databind.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.beust</groupId>
-            <artifactId>jcommander</artifactId>
-            <version>${jcommander.version}</version>
-        </dependency>
     </dependencies>
 
     <build>
