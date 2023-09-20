@@ -29,7 +29,7 @@
 
         <springdoc-openapi-starter-webmvc-ui.version>2.2.0</springdoc-openapi-starter-webmvc-ui.version>
         <modelmapper.version>3.1.1</modelmapper.version>
-        <lombok.version>1.18.28</lombok.version>
+        <lombok.version>1.18.30</lombok.version>
         <hibernate-jpamodelgen.version>6.3.0.Final</hibernate-jpamodelgen.version>
         <jakarta-xml-bind-api.version>4.0.1</jakarta-xml-bind-api.version>
         <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
