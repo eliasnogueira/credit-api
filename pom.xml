@@ -34,7 +34,7 @@
         <jakarta-xml-bind-api.version>4.0.1</jakarta-xml-bind-api.version>
         <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
         <h2.version>2.2.222</h2.version>
-        <jib.version>3.3.2</jib.version>
+        <jib.version>3.4.0</jib.version>
 
         <!-- security library updates -->
         <snakeyaml.version>2.2</snakeyaml.version>
