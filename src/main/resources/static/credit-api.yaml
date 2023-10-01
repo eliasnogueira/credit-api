@@ -194,7 +194,7 @@ components:
         message:
           type: string
           example: CPF 999999999 has a restriction
-      title: MessageV1
+      title: Message V1
     MessageV2:
       type: object
       required:
@@ -207,7 +207,7 @@ components:
         returnMessage:
           type: string
           example: CPF 999999999 not found
-      title: Message v2
+      title: Message V2
     Simulation:
       type: object
       properties:
