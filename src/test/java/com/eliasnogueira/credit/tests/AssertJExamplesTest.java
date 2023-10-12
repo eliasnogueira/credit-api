@@ -20,7 +20,5 @@ class AssertJExamplesTest {
             .insurance(false).build();
 
         assertThat(simulation1).usingRecursiveComparison().isEqualTo(simulation2);
-
-        
     }
 }
