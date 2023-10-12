@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.4</version>
+        <version>3.1.4</version>
     </parent>
 
     <groupId>com.eliasogueira.credit</groupId>
@@ -30,7 +30,7 @@
 
         <springdoc-openapi-starter-webmvc-ui.version>2.0.4</springdoc-openapi-starter-webmvc-ui.version>
         <modelmapper.version>3.1.1</modelmapper.version>
-        <lombok.version>1.18.26</lombok.version>
+        <lombok.version>1.18.30</lombok.version>
         <hibernate-jpamodelgen.version>6.1.7.Final</hibernate-jpamodelgen.version>
         <jakarta-xml-bind-api.version>4.0.0</jakarta-xml-bind-api.version>
         <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
@@ -40,7 +40,7 @@
         <!-- testing libraries -->
         <junit.version>5.9.2</junit.version>
         <restassured.version>5.3.0</restassured.version>
-        <assertj.version>3.23.1</assertj.version>
+        <assertj.version>3.24.2</assertj.version>
         <datafaker.version>1.8.1</datafaker.version>
         <awaitility.version>4.2.0</awaitility.version>
 
