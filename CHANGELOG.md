@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.1] - 06-11-2023
+
+## Changed
+- Update `pom.xml` to use Java 21
+- Updated the following libraries
+  - `spring-boot-starter-parent -> 3.1.5`
+  - `maven-surefire-plugin.version -> 3.2.1`
+  - `modelmapper.version -> 3.2.0`
+  - `lombok.version -> 1.18.30`
+  - `jakarta-xml-bind-api.version -> 4.0.1`
+  - `h2.version -> 2.2.224`
+  - `guava.version -> 32.1.3-jre`
+  - `snakeyaml.version -> 2.2`
+- Update Maven Wrapper
+- Update GitHub action to use Java 21
+
 ## [1.9.1] - 27-08-2023
 
 ### Changed
@@ -129,7 +145,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `lombok-1.18.24`
   - `hibernate-jpamodelgen-6.0.0.Final`
 - Added `jakarta.xml.bind-api` library to prevent `java.lang.NoClassDefFoundError: jakarta/xml/bind/JAXBException: jakarta.xml.bind.JAXBException` 
-- OpenAPI docs link updated in the `README.md` file
+- OpenAPIs docs link updated in the `README.md` file
 
 ## [1.4.7] - 23-05-2021
 
