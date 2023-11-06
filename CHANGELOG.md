@@ -4,6 +4,86 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.1] - 06-11-2023
+
+## Changed
+- Update `pom.xml` to use Java 21
+- Updated the following libraries
+  - `spring-boot-starter-parent -> 3.1.5`
+  - `maven-surefire-plugin.version -> 3.2.1`
+  - `modelmapper.version -> 3.2.0`
+  - `lombok.version -> 1.18.30`
+  - `jakarta-xml-bind-api.version -> 4.0.1`
+  - `h2.version -> 2.2.224`
+  - `guava.version -> 32.1.3-jre`
+  - `snakeyaml.version -> 2.2`
+- Update Maven Wrapper
+- Update GitHub action to use Java 21
+
+## [1.9.1] - 27-08-2023
+
+### Changed
+- Updated the following libraries
+  - `spring-boot-starter-parent -> 3.1.2`
+  - `springdoc-openapi-starter-webmvc-ui -> 2.2.0`
+  - `h2 -> 2.2.220`
+  - `commons-codec -> 1.16.0`
+  - `jackson-databind -> 2.15.2`
+  - `guava -> 32.1.2-jre`
+
+## [1.9.0] - 01-06-2023
+
+### Added
+- Added the Maven Wrapper
+
+### Changed
+- Updated the following libraries
+  - `spring-boot-starter-parent -> 3.1.0`
+  - `lombok.version -> 1.18.28`
+  - `hibernate-jpamodelgen.version -> 6.2.2.Final`
+  - `jackson-databind.version -> 2.15.0`
+
+## [1.8.6] - 04-05-2023
+
+### Changed
+- Updated the following libraries
+  - `spring-boot-starter-parent -> 3.0.6`
+  - `springdoc-openapi-starter-webmvc-ui.version -> 2.1.0`
+  - `lombok.version -> 1.18.26`
+  - `hibernate-jpamodelgen.version -> 6.2.3.Final`
+  - `maven-compiler-plugin.version -> 3.11.0`
+  - `maven-surefire-plugin.version -> 3.1.0`
+  - `jib.version -> 3.3.2`
+  - `guava.version -> 32.0.0-jre`
+
+## [1.8.5] - 23-01-2023
+
+### Changed
+- Fix the `Message` model in the OpenAPI spec
+
+## [1.8.4] - 21-01-2023
+
+### Added
+- Custom banner
+
+### Changed
+- Internal request during `POST /simulations` to check for a restriction
+- Bump `spring-boot-starter-parent` to `3.0.2`
+
+## [1.8.3] - 15-01-2023
+
+### Changed
+- Fix path in the `GET` request for the `SimulationsController`
+- Changed the initial load data in `LoadDatabase`
+
+## [1.8.2] - 08-01-2023
+
+### Added
+- `RestTemplateErrorHandler` to control de errors and HTTP status when check for the restrictions
+
+### Changed
+- `SimulationsController` checking for a restriction before sending the `POST` request
+
 ## [1.8.1] - 31-12-2022
 
 ### Added
@@ -65,7 +145,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `lombok-1.18.24`
   - `hibernate-jpamodelgen-6.0.0.Final`
 - Added `jakarta.xml.bind-api` library to prevent `java.lang.NoClassDefFoundError: jakarta/xml/bind/JAXBException: jakarta.xml.bind.JAXBException` 
-- OpenAPI docs link updated in the `README.md` file
+- OpenAPIs docs link updated in the `README.md` file
 
 ## [1.4.7] - 23-05-2021
 

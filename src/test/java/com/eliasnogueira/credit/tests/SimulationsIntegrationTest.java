@@ -83,7 +83,7 @@ class SimulationsIntegrationTest extends BaseAPI {
 
         var simulationsRequested =
             when().
-                get("/simulations").
+                get("/simulations/").
             then().
                 statusCode(SC_OK).
                 extract().
@@ -111,7 +111,7 @@ class SimulationsIntegrationTest extends BaseAPI {
         given().
             queryParam("name", existingSimulation.getName()).
         when().
-            get("/simulations").
+            get("/simulations/").
         then().
             statusCode(SC_OK).
             body(
@@ -136,7 +136,7 @@ class SimulationsIntegrationTest extends BaseAPI {
             contentType(ContentType.JSON).
             body(simulation).
         when().
-            post("/simulations").
+            post("/simulations/").
         then().
             statusCode(SC_CREATED).
             header("Location",
@@ -151,7 +151,7 @@ class SimulationsIntegrationTest extends BaseAPI {
             contentType(ContentType.JSON).
             body(invalidSimulation).
         when().
-            post("/simulations").
+            post("/simulations/").
         then().
             statusCode(SC_UNPROCESSABLE_ENTITY).
             body(path, is(validationMessage));
@@ -165,7 +165,7 @@ class SimulationsIntegrationTest extends BaseAPI {
             contentType(ContentType.JSON).
             body(existingSimulation).
         when().
-            post("/simulations").
+            post("/simulations/").
         then().
             statusCode(SC_CONFLICT).
             body("message", is("CPF already exists"));

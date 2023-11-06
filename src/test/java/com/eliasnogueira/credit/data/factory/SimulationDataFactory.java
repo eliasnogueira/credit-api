@@ -136,7 +136,7 @@ public final class SimulationDataFactory {
     private static List<Simulation> allSimulationsFromApi() {
         var simulations =
                 when()
-                    .get("/simulations").
+                    .get("/simulations/").
                 then()
                     .statusCode(HttpStatus.SC_OK)
                         .extract()
