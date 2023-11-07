@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `snakeyaml.version -> 2.2`
 - Update Maven Wrapper
 - Update GitHub action to use Java 21
+- Update OpenAPI spec
 
 ## [1.9.1] - 27-08-2023
 
