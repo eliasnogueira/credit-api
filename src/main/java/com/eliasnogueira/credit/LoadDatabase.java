@@ -64,7 +64,7 @@ public class LoadDatabase {
         return args -> {
             simulationRepository.save(Simulation.builder().cpf("66414919004").name("Tom").email("tom@gmail.com")
                     .amount(new BigDecimal(11000)).installments(3).insurance(true).build());
-            simulationRepository.save(Simulation.builder().cpf("17822386034").name("Dick").email("dick@gmail.com")
+            simulationRepository.save(Simulation.builder().cpf("17822386034").name("John").email("john@gmail.com")
                     .amount(new BigDecimal(20000)).installments(5).insurance(false).build());
         };
     }

@@ -58,7 +58,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import static java.lang.String.*;
+import static java.lang.String.format;
 import static java.net.InetAddress.getLoopbackAddress;
 
 @RestController
@@ -74,7 +74,7 @@ public class SimulationsController {
         this.env = env;
     }
 
-    @GetMapping()
+    @GetMapping("/")
     public List<Simulation> getSimulation(@RequestParam(name = "name", required = false) String name) {
         List<Simulation> simulationsFound;
 
@@ -97,7 +97,7 @@ public class SimulationsController {
                 orElseThrow(() -> new SimulationException(MessageFormat.format(CPF_NOT_FOUND, cpf)));
     }
 
-    @PostMapping()
+    @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<URI> newSimulation(@Valid @RequestBody SimulationDto simulation) {
         checkForRestriction(simulation.getCpf());
