@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.1] - 03-12-2023
+- Updated the following libraries
+  - `spring-boot-starter-parent -> 3.2.0`
+  - `maven-surefire-plugin.version -> 3.2.2`
+  - `springdoc-openapi-starter-webmvc-ui.version -> 2.3.0`
+  - `hibernate-jpamodelgen.version -> 6.4.0.Final`
+  - `jib.version -> 3.4.0`
+
 ## [1.10.0] - 06-11-2023
 
 ## Changed

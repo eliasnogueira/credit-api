@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.5</version>
+        <version>3.2.0</version>
     </parent>
 
     <groupId>com.eliasogueira.credit</groupId>
     <artifactId>combined-credit-api</artifactId>
-    <version>1.10.0-SNAPSHOT</version>
+    <version>1.10.1-SNAPSHOT</version>
 
     <distributionManagement>
         <repository>
@@ -25,16 +25,16 @@
     <properties>
         <java.version>21</java.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
-        <maven-surefire-plugin.version>3.1.0</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.2.2</maven-surefire-plugin.version>
 
-        <springdoc-openapi-starter-webmvc-ui.version>2.2.0</springdoc-openapi-starter-webmvc-ui.version>
+        <springdoc-openapi-starter-webmvc-ui.version>2.3.0</springdoc-openapi-starter-webmvc-ui.version>
         <modelmapper.version>3.2.0</modelmapper.version>
         <lombok.version>1.18.30</lombok.version>
-        <hibernate-jpamodelgen.version>6.2.3.Final</hibernate-jpamodelgen.version>
+        <hibernate-jpamodelgen.version>6.4.0.Final</hibernate-jpamodelgen.version>
         <jakarta-xml-bind-api.version>4.0.1</jakarta-xml-bind-api.version>
         <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
         <h2.version>2.2.224</h2.version>
-        <jib.version>3.3.2</jib.version>
+        <jib.version>3.4.0</jib.version>
 
         <!-- security library updates -->
         <commons-codec.version>1.16.0</commons-codec.version>
@@ -137,7 +137,6 @@
         </dependency>
 
         <!-- enforcement the usage of this libraries due to the inner usage with vulnerabilities -->
-        <!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
