@@ -12,7 +12,7 @@
 
     <groupId>com.eliasogueira.credit</groupId>
     <artifactId>combined-credit-api</artifactId>
-    <version>1.10.1-SNAPSHOT</version>
+    <version>1.10.2-SNAPSHOT</version>
 
     <distributionManagement>
         <repository>
@@ -41,7 +41,6 @@
         <jackson-databind.version>2.15.2</jackson-databind.version>
         <guava.version>32.1.3-jre</guava.version>
         <jcommander.version>1.82</jcommander.version>
-        <snakeyaml.version>2.2</snakeyaml.version>
 
         <start-class>com.eliasnogueira.credit.CreditApiApplication</start-class>
     </properties>
@@ -69,18 +68,6 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.jayway.jsonpath</groupId>
-                    <artifactId>json-path</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
@@ -97,12 +84,6 @@
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>${springdoc-openapi-starter-webmvc-ui.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.yaml</groupId>
-                    <artifactId>snakeyaml</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
@@ -134,13 +115,6 @@
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
             <version>${jaxb-api.version}</version>
-        </dependency>
-
-        <!-- enforcement the usage of this libraries due to the inner usage with vulnerabilities -->
-        <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-            <version>${snakeyaml.version}</version>
         </dependency>
 
     </dependencies>

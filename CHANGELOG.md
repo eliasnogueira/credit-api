@@ -5,10 +5,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.10.2] - 17-12-2023
+
+### Changed
 - Updated the following libraries
   - `hibernate-jpamodelgen -> 6.4.1.Final` 
 
+## Removed
+- Removed `snakeyaml` explicitly dependency and exclusion
+- Removed `spring-boot-starter-test`
+
 ## [1.10.1] - 03-12-2023
+
+## Changed
 - Updated the following libraries
   - `spring-boot-starter-parent -> 3.2.0`
   - `maven-surefire-plugin.version -> 3.2.2`
