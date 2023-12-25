@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.3] - 25-12-2023
+
+## Changed
+- Updated the following libraries
+  - `spring-boot-starter-parent -> 3.2.1`
+  - `maven-compiler-plugin.version -> 3.12.1`
+  - `maven-surefire-plugin -> 3.2.3`
+
 ## [1.10.2] - 17-12-2023
 
 ### Changed
