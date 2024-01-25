@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.1</version>
+        <version>3.2.2</version>
     </parent>
 
     <groupId>com.eliasogueira.credit</groupId>
     <artifactId>combined-credit-api</artifactId>
-    <version>1.10.3-SNAPSHOT</version>
+    <version>1.10.4-SNAPSHOT</version>
 
     <distributionManagement>
         <repository>
@@ -25,12 +25,12 @@
     <properties>
         <java.version>21</java.version>
         <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
-        <maven-surefire-plugin.version>3.2.3</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
 
         <springdoc-openapi-starter-webmvc-ui.version>2.3.0</springdoc-openapi-starter-webmvc-ui.version>
         <modelmapper.version>3.2.0</modelmapper.version>
         <lombok.version>1.18.30</lombok.version>
-        <hibernate-jpamodelgen.version>6.4.1.Final</hibernate-jpamodelgen.version>
+        <hibernate-jpamodelgen.version>6.4.2.Final</hibernate-jpamodelgen.version>
         <jakarta-xml-bind-api.version>4.0.1</jakarta-xml-bind-api.version>
         <h2.version>2.2.224</h2.version>
         <jib-maven-plugin.version>3.4.0</jib-maven-plugin.version>
