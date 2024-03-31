@@ -3,7 +3,10 @@ name: Main Branch
 on:
   push:
     branches:
-      - 'main'
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,7 +27,10 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Build with Maven
-        run: mvn -DskipTests package --file pom.xml
+        run: mvn clean compile --file pom.xml
+
+      - name: Build with Maven
+        run: mvn test --file pom.xml
   artifact:
     name: Publish Artifact
     runs-on: ubuntu-latest
@@ -40,6 +46,6 @@ jobs:
         run: mvn versions:set -DremoveSnapshot
 
       - name: Publish artifact on GitHub Packages
-        run: mvn clean deploy -DskipTests
+        run: mvn deploy -DskipTests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
