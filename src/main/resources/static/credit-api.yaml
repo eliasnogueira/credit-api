@@ -14,7 +14,7 @@ paths:
       tags:
         - Simulations
       summary: Return all recorded simulations
-      operationId: getSimulationUsingGET
+      operationId: getSimulation
       parameters:
         - name: name
           in: query
@@ -38,7 +38,7 @@ paths:
       tags:
         - Simulations
       summary: Record a new simulation
-      operationId: newSimulationUsingPOST
+      operationId: postSimulation
       requestBody:
         content:
           application/json:
@@ -73,7 +73,7 @@ paths:
       tags:
         - Simulations
       summary: Return a simulation for a given CPF
-      operationId: oneUsingGET_1
+      operationId: getSimulationByCpf
       parameters:
         - name: cpf
           in: path
@@ -94,7 +94,7 @@ paths:
       tags:
         - Simulations
       summary: Update a simulation by a given CPF
-      operationId: updateSimulationUsingPUT
+      operationId: updateSimulation
       parameters:
         - name: cpf
           in: path
@@ -124,7 +124,7 @@ paths:
       tags:
         - Simulations
       summary: Delete a simulation by a given CPF
-      operationId: deleteUsingDELETE
+      operationId: deleteSimulation
       parameters:
         - name: cpf
           in: path
@@ -142,7 +142,7 @@ paths:
       tags:
         - Restrictions
       summary: Query to search for a restricted CPF
-      operationId: oneUsingGET
+      operationId: getRestrictionV1
       parameters:
         - name: cpf
           in: path
@@ -165,7 +165,7 @@ paths:
       tags:
         - Restrictions
       summary: Query to search for a restricted CPF
-      operationId: oneV2UsingGET
+      operationId: getRestrictionV2
       parameters:
         - name: cpf
           in: path

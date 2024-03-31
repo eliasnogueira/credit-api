@@ -4,7 +4,75 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.10.1] - 06-11-2023
+## [1.12.0] - 31-03-2024
+
+## Added
+- Added the following testing libraries
+  - `junit -> 5.10.2`
+  - `restassured -> 5.4.0`
+  - `assertj -> 3.25.3`
+  - `datafaker -> 2.1.0`
+  - `testcontainers -> 1.19.7`
+- Added integration tests along with the necessary code
+
+## Changed
+
+
+## [1.11.0] - 31-03-2024
+
+## Added
+- `maven.config` at the `.mvn` folder
+
+## Changed
+- Added Java 22
+- Updated Maven Wrapper
+- Updated the following libraries
+  - `spring-boot-starter-parent -> 3.2.4`
+  - `maven-compiler-plugin -> 3.13.0`
+  - `springdoc-openapi-starter-webmvc-ui -> 2.4.0`
+  - `lombok -> 1.18.32`
+  - `hibernate-jpamodelgen -> 6.4.4.Final`
+  - `jakarta-xml-bind-api -> 4.0.2`
+  - `jib-maven-plugin -> 3.4.1`
+
+## [1.10.3] - 25-01-2024
+
+## Changed
+- Updated the following libraries
+  - `spring-boot-starter-parent -> 3.2.2`
+  - `maven-surefire-plugin.version -> 3.2.5`
+  - `hibernate-jpamodelgen.version -> 6.4.2.Final`
+
+
+## [1.10.3] - 25-12-2023
+
+## Changed
+- Updated the following libraries
+  - `spring-boot-starter-parent -> 3.2.1`
+  - `maven-compiler-plugin.version -> 3.12.1`
+  - `maven-surefire-plugin -> 3.2.3`
+
+## [1.10.2] - 17-12-2023
+
+### Changed
+- Updated the following libraries
+  - `hibernate-jpamodelgen -> 6.4.1.Final` 
+
+## Removed
+- Removed `snakeyaml` explicitly dependency and exclusion
+- Removed `spring-boot-starter-test`
+
+## [1.10.1] - 03-12-2023
+
+## Changed
+- Updated the following libraries
+  - `spring-boot-starter-parent -> 3.2.0`
+  - `maven-surefire-plugin.version -> 3.2.2`
+  - `springdoc-openapi-starter-webmvc-ui.version -> 2.3.0`
+  - `hibernate-jpamodelgen.version -> 6.4.0.Final`
+  - `jib.version -> 3.4.0`
+
+## [1.10.0] - 06-11-2023
 
 ## Changed
 - Update `pom.xml` to use Java 21
@@ -19,6 +87,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `snakeyaml.version -> 2.2`
 - Update Maven Wrapper
 - Update GitHub action to use Java 21
+- Update OpenAPI spec
 
 ## [1.9.1] - 27-08-2023
 

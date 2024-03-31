@@ -44,11 +44,8 @@ public class ExceptionHandlingController extends ResponseEntityExceptionHandler 
     @ExceptionHandler({TransactionSystemException.class})
     public ResponseEntity<ValidationDto> handleConstraintViolation(TransactionSystemException ex) {
 
-        if (ex.getCause() instanceof RollbackException) {
-            RollbackException rollbackException = (RollbackException) ex.getCause();
-            if (rollbackException.getCause() instanceof ConstraintViolationException) {
-                ConstraintViolationException constraintViolationException = (ConstraintViolationException) rollbackException
-                    .getCause();
+        if (ex.getCause() instanceof RollbackException rollbackException) {
+            if (rollbackException.getCause() instanceof ConstraintViolationException constraintViolationException) {
 
                 Map<String, String> errors = new HashMap<>();
                 constraintViolationException.getConstraintViolations().forEach(constraintViolation ->
@@ -66,9 +63,7 @@ public class ExceptionHandlingController extends ResponseEntityExceptionHandler 
      */
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<MessageDto> dataIntegrityException(DataIntegrityViolationException ex) {
-        if (ex.getCause() instanceof org.hibernate.exception.ConstraintViolationException) {
-            org.hibernate.exception.ConstraintViolationException constraintViolationException = (org.hibernate.exception.ConstraintViolationException) ex
-                .getCause();
+        if (ex.getCause() instanceof org.hibernate.exception.ConstraintViolationException constraintViolationException) {
 
             if (constraintViolationException.getSQLException().getMessage().contains("CPF")) {
                 return new ResponseEntity<>(new MessageDto("CPF already exists"), HttpStatus.CONFLICT);
