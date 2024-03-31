@@ -14,9 +14,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `datafaker -> 2.1.0`
   - `testcontainers -> 1.19.7`
 - Added integration tests along with the necessary code
+- Added the `spring-boot-starter-test`
+- Added test properties
 
 ## Changed
-
+- Removed custom e-mail validation from the `Simulation` entity
 
 ## [1.11.0] - 31-03-2024
 
