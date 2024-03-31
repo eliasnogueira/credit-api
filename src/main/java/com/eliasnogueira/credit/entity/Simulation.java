@@ -66,7 +66,6 @@ public class Simulation {
 
     @NotNull(message = "E-mail cannot be empty")
     @Email
-    @Pattern(regexp = ".+@.+\\.[a-z]+", message = "E-mail must be valid")
     private String email;
 
     @NotNull(message = "Amount cannot be empty")
