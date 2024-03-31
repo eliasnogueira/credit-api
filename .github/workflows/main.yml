@@ -26,17 +26,27 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Build with Maven
+      - name: Build
         run: mvn clean compile --file pom.xml
 
-      - name: Build with Maven
+      - name: Test
         run: mvn test --file pom.xml
 
       - name: Removing -SNAPSHOT
         run: mvn versions:set -DremoveSnapshot
 
+
+  publish:
+    if: github.event.pull_request.merged == true
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 22
+        uses: actions/setup-java@v4
+        with:
+          distribution: oracle
+          java-version: 22
       - name: Publish artifact on GitHub Packages
         run: mvn deploy -DskipTests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
