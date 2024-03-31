@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) today.year Elias Nogueira
+ * Copyright (c) 2020 Elias Nogueira
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,26 +22,32 @@
  * SOFTWARE.
  */
 
-package com.eliasnogueira.credit.dto;
+package com.eliasnogueira.credit.data.factory;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import net.datafaker.Faker;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.math.BigDecimal;
+public class RestrictionDataFactory {
 
-@Builder
-@Data
-@AllArgsConstructor
-public class SimulationDto {
+    private final Faker faker = new Faker();
+    private static final Logger log = LogManager.getLogger(RestrictionDataFactory.class);
 
-    @JsonIgnore
-    private Long id;
-    private String cpf;
-    private String name;
-    private String email;
-    private BigDecimal amount;
-    private Integer installments;
-    private Boolean insurance;
+    public String cpfWithoutRestriction() {
+        String cpf = String.valueOf(faker.number().randomNumber(11, false));
+
+        log.info("CPF without restriction in use: {}", cpf);
+        return cpf;
+    }
+
+    public String cpfWithRestriction() {
+        String cpfWithRestriction = faker.options().option("97093236014", "60094146012", "84809766080",
+                "62648716050", "26276298085", "01317496094", "55856777050", "19626829001", "24094592008",
+                "58063164083"
+        );
+
+
+        log.info("CPF with restriction in use: {}", cpfWithRestriction);
+        return cpfWithRestriction;
+    }
 }

@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) today.year Elias Nogueira
+ * Copyright (c) 2023 Elias Nogueira
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,26 +22,21 @@
  * SOFTWARE.
  */
 
-package com.eliasnogueira.credit.dto;
+package com.eliasnogueira.credit.assertion;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import com.eliasnogueira.credit.data.model.Simulation;
+import org.assertj.core.api.AbstractSoftAssertions;
+import org.assertj.core.api.SoftAssertionsProvider;
 
-import java.math.BigDecimal;
+import java.util.function.Consumer;
 
-@Builder
-@Data
-@AllArgsConstructor
-public class SimulationDto {
+public class SimulationSoftAssert extends AbstractSoftAssertions {
 
-    @JsonIgnore
-    private Long id;
-    private String cpf;
-    private String name;
-    private String email;
-    private BigDecimal amount;
-    private Integer installments;
-    private Boolean insurance;
+    public SimulationAssert assertThat(Simulation actual) {
+        return proxy(SimulationAssert.class, Simulation.class, actual);
+    }
+
+    public static void assertSoftly(Consumer<SimulationSoftAssert> softly) {
+        SoftAssertionsProvider.assertSoftly(SimulationSoftAssert.class, softly);
+    }
 }

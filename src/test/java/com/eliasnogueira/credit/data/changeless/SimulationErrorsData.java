@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) today.year Elias Nogueira
+ * Copyright (c) 2022 Elias Nogueira
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,26 +22,22 @@
  * SOFTWARE.
  */
 
-package com.eliasnogueira.credit.dto;
+package com.eliasnogueira.credit.data.changeless;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+public enum SimulationErrorsData {
 
-import java.math.BigDecimal;
+    ERRORS_AMOUNT_GREATER("errors.amount", "Amount must be equal or greater than $ 1.000"),
+    ERRORS_AMOUNT_LESS("errors.amount", "Amount must be equal or less than than $ 40.000"),
+    ERRORS_INSTALLMENTS_GREATER("errors.installments", "Installments must be equal or greater than 2"),
+    ERRORS_INSTALLMENTS_LESS("errors.installments", "Installments must be equal or less than 48"),
+    ERRORS_EMAIL("errors.email", "must be a well-formed email address"),
+    ERRORS_NAME("errors.name", "Name cannot be empty");
 
-@Builder
-@Data
-@AllArgsConstructor
-public class SimulationDto {
+    public final String key;
+    public final String message;
 
-    @JsonIgnore
-    private Long id;
-    private String cpf;
-    private String name;
-    private String email;
-    private BigDecimal amount;
-    private Integer installments;
-    private Boolean insurance;
+    SimulationErrorsData(String key, String message) {
+        this.key = key;
+        this.message = message;
+    }
 }

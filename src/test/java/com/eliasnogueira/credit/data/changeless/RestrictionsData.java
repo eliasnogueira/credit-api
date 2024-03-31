@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) today.year Elias Nogueira
+ * Copyright (c) 2022 Elias Nogueira
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,27 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package com.eliasnogueira.credit.data.changeless;
 
-package com.eliasnogueira.credit.dto;
+public final class RestrictionsData {
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+    private RestrictionsData() {
+    }
 
-import java.math.BigDecimal;
-
-@Builder
-@Data
-@AllArgsConstructor
-public class SimulationDto {
-
-    @JsonIgnore
-    private Long id;
-    private String cpf;
-    private String name;
-    private String email;
-    private BigDecimal amount;
-    private Integer installments;
-    private Boolean insurance;
+    public static final String SERVICE = "/restrictions";
+    public static final String GET_RESTRICTIONS = String.format("%s/{cpf}", SERVICE);
+    public static final String CPF = "cpf";
 }

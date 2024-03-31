@@ -34,7 +34,6 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -42,6 +41,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+
 @Data
 @Builder(access = AccessLevel.PUBLIC)
 @AllArgsConstructor
@@ -51,7 +51,6 @@ import java.math.BigDecimal;
         @UniqueConstraint(name = "cpf_unique", columnNames = "cpf")
 })
 public class Simulation {
-
     @Id
     @GeneratedValue
     private Long id;
@@ -66,7 +65,6 @@ public class Simulation {
 
     @NotNull(message = "E-mail cannot be empty")
     @Email
-    @Pattern(regexp = ".+@.+\\.[a-z]+", message = "E-mail must be valid")
     private String email;
 
     @NotNull(message = "Amount cannot be empty")
