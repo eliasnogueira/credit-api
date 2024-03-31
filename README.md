@@ -8,8 +8,8 @@ It's a combination of the following projects to facilitate the test automation:
 
 # Required software
 
-* Java JDK 21+
-  * you can change the `java.version` property in the `pom.xml` file to `17` as this project is not using any specific Java 21 feature
+* Java JDK 22+
+  * you can change the `java.version` property in the `pom.xml` file to `17` as this project is not using any specific Java 22 feature
 
 # About the API
 
