@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added `system.properties` to deploy on Heroku
+- New pipeline to run only during PR
 
 ## [1.12.0] - 31-03-2024
 
