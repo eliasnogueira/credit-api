@@ -1,7 +1,7 @@
-name: Main Branch
+name: On Pull Request
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
@@ -29,11 +29,3 @@ jobs:
 
       - name: Test
         run: mvn test --file pom.xml
-
-      - name: Removing -SNAPSHOT
-        run: mvn versions:set -DremoveSnapshot
-
-      - name: Publish artifact on GitHub Packages
-        run: mvn deploy -DskipTests
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
