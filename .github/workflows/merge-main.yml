@@ -25,13 +25,10 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Build
-        run: mvn clean compile --file pom.xml
+        run: mvn clean compile
 
       - name: Test
-        run: mvn test --file pom.xml
-
-      - name: Removing -SNAPSHOT
-        run: mvn versions:set -DremoveSnapshot
+        run: mvn test
 
       - name: Publish artifact on GitHub Packages
         run: mvn deploy -DskipTests
@@ -39,6 +36,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish Docker image
-        uses: MathieuSoysal/jib-container-publish.yml@v2.1.5
-        with:
-          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: mvn compile jib:build
