@@ -208,6 +208,9 @@
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>${jib-maven-plugin.version}</version>
                 <configuration>
+                    <from>
+                        <image>eclipse-temurin:22_36-jre-alpine</image>
+                    </from>
                     <to>
                         <image>eliasnogueira/${project.name}:${project.version}</image>
                         <tags>

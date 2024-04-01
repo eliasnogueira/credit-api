@@ -37,3 +37,8 @@ jobs:
         run: mvn deploy -DskipTests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish Docker image
+        uses: MathieuSoysal/jib-container-publish.yml@v2.1.5
+        with:
+          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
