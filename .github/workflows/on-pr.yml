@@ -25,7 +25,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Build
-        run: mvn clean compile --file pom.xml
+        run: mvn clean compile
 
       - name: Test
-        run: mvn test --file pom.xml
+        run: mvn test --file
