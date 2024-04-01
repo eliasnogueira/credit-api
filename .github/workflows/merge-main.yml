@@ -39,4 +39,4 @@ jobs:
         run: |
           mvn compile jib:build \
             -Djib.to.auth.username=${{ github.actor }} \
-            -Djib.to.auth.password=${{ secrets.GITHUB_TOKEN }}
+            -Djib.to.auth.password=${{ secrets.DOCKER_ACCESS_TOKEN }}
