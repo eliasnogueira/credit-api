@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.13.1] - 31-03-2024
+
+### Added
+
+- Added docker image for Java 22 using jib-maven-plugin
+- Added the automatic Docker image publishing while merging
+
 ## [1.13.0] - 31-03-2024
 
 ### Added
