@@ -38,7 +38,7 @@
         <junit.version>5.10.2</junit.version>
         <restassured.version>5.4.0</restassured.version>
         <assertj.version>3.25.3</assertj.version>
-        <datafaker.version>2.1.0</datafaker.version>
+        <datafaker.version>2.2.2</datafaker.version>
         <testcontainers.version>1.19.7</testcontainers.version>
 
         <!-- transitive vulnerable dependencies -->
