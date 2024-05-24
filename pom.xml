@@ -42,7 +42,7 @@
         <testcontainers.version>1.19.7</testcontainers.version>
 
         <!-- transitive vulnerable dependencies -->
-        <commons-compress>1.26.1</commons-compress>
+        <commons-compress>1.26.2</commons-compress>
 
         <start-class>com.eliasnogueira.credit.CreditApiApplication</start-class>
     </properties>
