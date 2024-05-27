@@ -5,7 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.13.5] - 10-044-2024
+## [1.13.6] - 27-06-2024
+
+### Changed
+
+- Updated Maven Wrapper
+- Bump actions/cache
+- Updated the following libraries
+  - `spring-boot-starter-parent -> 3.3.0`
+  - `hibernate-jpamodelgen.version -> 6.5.2.Final`
+  - `junit.version -> 5.11.0-M2`
+  - `assertj.version -> 3.26.0`
+  - `datafaker.version -> 2.2.2`
+  - `testcontainers.version -> 1.19.8`
+
+## [1.13.5] - 10-0442024
 
 ### Changed
 
