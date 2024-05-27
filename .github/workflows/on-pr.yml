@@ -17,7 +17,7 @@ jobs:
           java-version: 22
 
       - name: Cache Maven packages
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
@@ -28,4 +28,4 @@ jobs:
         run: mvn clean compile
 
       - name: Test
-        run: mvn test
+        run: mvn -q test
