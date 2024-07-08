@@ -36,7 +36,7 @@
         <jib-maven-plugin.version>3.4.2</jib-maven-plugin.version>
 
         <junit.version>5.11.0-M2</junit.version>
-        <restassured.version>5.4.0</restassured.version>
+        <restassured.version>5.5.0</restassured.version>
         <assertj.version>3.26.0</assertj.version>
         <datafaker.version>2.2.2</datafaker.version>
         <testcontainers.version>1.19.8</testcontainers.version>
