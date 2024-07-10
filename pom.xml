@@ -37,7 +37,7 @@
 
         <junit.version>5.11.0-M2</junit.version>
         <restassured.version>5.4.0</restassured.version>
-        <assertj.version>3.26.0</assertj.version>
+        <assertj.version>3.26.3</assertj.version>
         <datafaker.version>2.2.2</datafaker.version>
         <testcontainers.version>1.19.8</testcontainers.version>
 
