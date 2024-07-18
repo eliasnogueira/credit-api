@@ -39,7 +39,7 @@
         <restassured.version>5.4.0</restassured.version>
         <assertj.version>3.26.0</assertj.version>
         <datafaker.version>2.2.2</datafaker.version>
-        <testcontainers.version>1.19.8</testcontainers.version>
+        <testcontainers.version>1.20.0</testcontainers.version>
 
         <!-- transitive vulnerable dependencies -->
         <commons-compress>1.26.2</commons-compress>
