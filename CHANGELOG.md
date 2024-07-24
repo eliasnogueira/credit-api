@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.7] - 24-07-2024
+
+### Changed
+
+- Updated Maven Wrapper
+- Updated the following libraries
+    - `spring-boot-starter-parent -> 3.3.2`
+    - `springdoc-openapi-starter-webmvc-ui -> 2.6.0`
+    - `modelmapper -> 3.2.0`
+    - `lombok -> 1.18.34`
+    - `h2 -> 2.3.230`
+    - `jib-maven-plugin -> 3.4.3`
+    - `restassured -> 5.5.0`
+    - `assertj -> 3.26.3`
+    - `datafaker -> 2.3.1`
+    - `testcontainers -> 1.20.0`
+
 ## [1.13.6] - 27-06-2024
 
 ### Changed
