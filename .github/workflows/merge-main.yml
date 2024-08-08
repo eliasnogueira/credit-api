@@ -28,7 +28,7 @@ jobs:
         run: mvn -q clean compile
 
       - name: Test
-        run: mvn -q test
+        run: mvn test
 
       - name: Publish artifact on GitHub Packages
         run: mvn -q deploy -DskipTests
