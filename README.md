@@ -1,6 +1,6 @@
 # Combined Credit API
 
-[![Main Branch](https://github.com/eliasnogueira/credit-api/actions/workflows/main.yml/badge.svg)](https://github.com/eliasnogueira/credit-api/actions/workflows/main.yml)
+[![On Merge](https://github.com/eliasnogueira/credit-api/actions/workflows/merge-main.yml/badge.svg)](https://github.com/eliasnogueira/credit-api/actions/workflows/merge-main.yml)
 
 This project was created to start the initial steps with test automation for a REST API using RestAssured.
 It's a combination of the following projects to facilitate the test automation:
