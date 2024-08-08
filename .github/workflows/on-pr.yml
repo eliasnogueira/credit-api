@@ -25,7 +25,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Build
-        run: mvn clean compile
+        run: mvn clean -q compile
 
       - name: Test
-        run: mvn -q test
+        run: mvn test

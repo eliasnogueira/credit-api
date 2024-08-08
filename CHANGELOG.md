@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.8] - 08-08-2024
+
+### Changed
+- Updated the following libraries
+    - `junit -> 5.10.3`
+- Added the `maven-surefire-junit5-tree-reporter` plugin to the `maven-surefire-plugin` execution
+- Changed the GitHub actions workflow to not quite the output while running tests
+- Updated the Maven Wrapper
+
 ## [1.3.7] - 24-07-2024
 
 ### Changed
