@@ -5,9 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.9] - 12-10-2024
+
+## Changed
+
+- Project and GitHub workflow updated to Java 23
+- Added ` <maven.compiler.proc>full</maven.compiler.proc>` to solve the JDK 23 + Lombok issues
+- Updated Maven Wrapper
+- Updated the following libraries
+  - `spring-boot-starter-parent -> 3.3.4`
+  - `maven-surefire-plugin -> 3.5.1`
+  - `modelmapper -> 3.2.1`
+  - `hibernate-jpamodelgen -> 6.6.1.Final`
+  - `h2 -> 2.3.232`
+  - `junit -> 5.11.2`
+  - `datafaker -> 2.4.0`
+  - `testcontainers -> 1.20.2`
+  - `commons-compress -> 1.27.1`
+
 ## [1.3.8] - 08-08-2024
 
 ### Changed
+
 - Updated the following libraries
     - `junit -> 5.10.3`
 - Added the `maven-surefire-junit5-tree-reporter` plugin to the `maven-surefire-plugin` execution
@@ -38,20 +57,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated Maven Wrapper
 - Bump actions/cache
 - Updated the following libraries
-  - `spring-boot-starter-parent -> 3.3.0`
-  - `hibernate-jpamodelgen.version -> 6.5.2.Final`
-  - `junit.version -> 5.11.0-M2`
-  - `assertj.version -> 3.26.0`
-  - `datafaker.version -> 2.2.2`
-  - `testcontainers.version -> 1.19.8`
+    - `spring-boot-starter-parent -> 3.3.0`
+    - `hibernate-jpamodelgen.version -> 6.5.2.Final`
+    - `junit.version -> 5.11.0-M2`
+    - `assertj.version -> 3.26.0`
+    - `datafaker.version -> 2.2.2`
+    - `testcontainers.version -> 1.19.8`
 
 ## [1.13.5] - 10-0442024
 
 ### Changed
 
 - Updated the following libraries
-  - `springdoc-openapi-starter-webmvc-ui -> 2.5.0`
-  - `jib-maven-plugin -> 3.4.2`
+    - `springdoc-openapi-starter-webmvc-ui -> 2.5.0`
+    - `jib-maven-plugin -> 3.4.2`
 
 ## [1.13.2 - 1.13.4] - 01-04-2024
 
