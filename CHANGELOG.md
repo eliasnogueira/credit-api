@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.10] - 16-10-2024
+
+## Changed
+
+- Fixed the `Simulation` entity by replacing the `@Min` and `@Max` in the `amount` field by `@DecimalMin` and
+  `@DecimalMax`
+
 ## [1.3.9] - 12-10-2024
 
 ## Changed
@@ -13,15 +20,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added ` <maven.compiler.proc>full</maven.compiler.proc>` to solve the JDK 23 + Lombok issues
 - Updated Maven Wrapper
 - Updated the following libraries
-  - `spring-boot-starter-parent -> 3.3.4`
-  - `maven-surefire-plugin -> 3.5.1`
-  - `modelmapper -> 3.2.1`
-  - `hibernate-jpamodelgen -> 6.6.1.Final`
-  - `h2 -> 2.3.232`
-  - `junit -> 5.11.2`
-  - `datafaker -> 2.4.0`
-  - `testcontainers -> 1.20.2`
-  - `commons-compress -> 1.27.1`
+    - `spring-boot-starter-parent -> 3.3.4`
+    - `maven-surefire-plugin -> 3.5.1`
+    - `modelmapper -> 3.2.1`
+    - `hibernate-jpamodelgen -> 6.6.1.Final`
+    - `h2 -> 2.3.232`
+    - `junit -> 5.11.2`
+    - `datafaker -> 2.4.0`
+    - `testcontainers -> 1.20.2`
+    - `commons-compress -> 1.27.1`
 
 ## [1.3.8] - 08-08-2024
 

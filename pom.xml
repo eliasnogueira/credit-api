@@ -12,7 +12,7 @@
 
     <groupId>com.eliasogueira.credit</groupId>
     <artifactId>combined-credit-api</artifactId>
-    <version>1.13.9</version>
+    <version>1.13.10</version>
 
     <distributionManagement>
         <repository>

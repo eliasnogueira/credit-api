@@ -29,6 +29,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -68,8 +70,8 @@ public class Simulation {
     private String email;
 
     @NotNull(message = "Amount cannot be empty")
-    @Min(value = 1000, message = "Amount must be equal or greater than $ 1.000")
-    @Max(value = 40000, message = "Amount must be equal or less than than $ 40.000")
+    @DecimalMin(value = "1000", message = "Amount must be equal or greater than $ 1.000")
+    @DecimalMax(value = "40000", message = "Amount must be equal or less than than $ 40.000")
     private BigDecimal amount;
 
     @NotNull(message = "Installments cannot be empty")
