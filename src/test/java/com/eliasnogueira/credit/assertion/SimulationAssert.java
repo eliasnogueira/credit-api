@@ -52,12 +52,13 @@ public class SimulationAssert extends AbstractAssert<SimulationAssert, Simulatio
     public SimulationAssert hasValidAmount() {
         isNotNull();
 
-        var minimum = new BigDecimal("1.000");
-        var maximum = new BigDecimal("40.000");
+        var minimum = new BigDecimal("1000");
+        var maximum = new BigDecimal("40000");
 
-        if (actual.getAmount().compareTo(minimum) < 0 || actual.getAmount().compareTo(maximum) > 0) {
-            failWithMessage("Amount must be equal or greater than $ 1.000 or equal or less than than $ 40.000");
-        }
+        if (actual.getAmount().compareTo(minimum) < 0) failWithMessage("Amount must be equal or greater than $ 1.000");
+
+        if (actual.getAmount().compareTo(maximum) > 0)
+            failWithMessage("Amount must be equal or less than than $ 40.000");
 
         return this;
     }
