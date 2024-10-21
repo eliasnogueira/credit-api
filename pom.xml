@@ -35,7 +35,7 @@
         <hibernate-jpamodelgen.version>6.6.1.Final</hibernate-jpamodelgen.version>
         <jakarta-xml-bind-api.version>4.0.2</jakarta-xml-bind-api.version>
         <h2.version>2.3.232</h2.version>
-        <jib-maven-plugin.version>3.4.3</jib-maven-plugin.version>
+        <jib-maven-plugin.version>3.4.4</jib-maven-plugin.version>
 
         <junit.version>5.11.2</junit.version>
         <restassured.version>5.5.0</restassured.version>
