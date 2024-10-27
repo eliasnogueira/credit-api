@@ -27,6 +27,7 @@ package com.eliasnogueira.credit.controller;
 import com.eliasnogueira.credit.dto.SimulationDto;
 import com.eliasnogueira.credit.dto.v1.MessageDto;
 import com.eliasnogueira.credit.entity.Simulation;
+import com.eliasnogueira.credit.entity.SimulationBuilder;
 import com.eliasnogueira.credit.exception.RestTemplateErrorHandler;
 import com.eliasnogueira.credit.exception.SimulationException;
 import com.eliasnogueira.credit.repository.SimulationRepository;
@@ -79,7 +80,7 @@ public class SimulationsController {
         List<Simulation> simulationsFound;
 
         Example<Simulation> example =
-                Example.of(Simulation.builder().name(name).build(),
+                Example.of(new SimulationBuilder().name(name).build(),
                         ExampleMatcher.matchingAny().
                                 withMatcher("name", ExampleMatcher.GenericPropertyMatchers.contains()));
 
