@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.4</version>
+        <version>3.3.5</version>
     </parent>
 
     <groupId>com.eliasogueira.credit</groupId>
     <artifactId>combined-credit-api</artifactId>
-    <version>1.13.10</version>
+    <version>1.13.11</version>
 
     <distributionManagement>
         <repository>
@@ -23,7 +23,7 @@
     </distributionManagement>
 
     <properties>
-        <java.version>22</java.version>
+        <java.version>23</java.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <maven.compiler.proc>full</maven.compiler.proc>
         <maven-surefire-plugin.version>3.5.1</maven-surefire-plugin.version>
@@ -35,13 +35,13 @@
         <hibernate-jpamodelgen.version>6.6.1.Final</hibernate-jpamodelgen.version>
         <jakarta-xml-bind-api.version>4.0.2</jakarta-xml-bind-api.version>
         <h2.version>2.3.232</h2.version>
-        <jib-maven-plugin.version>3.4.3</jib-maven-plugin.version>
+        <jib-maven-plugin.version>3.4.4</jib-maven-plugin.version>
 
-        <junit.version>5.11.2</junit.version>
+        <junit.version>5.11.3</junit.version>
         <restassured.version>5.5.0</restassured.version>
         <assertj.version>3.26.3</assertj.version>
-        <datafaker.version>2.4.0</datafaker.version>
-        <testcontainers.version>1.20.2</testcontainers.version>
+        <datafaker.version>2.4.1</datafaker.version>
+        <testcontainers.version>1.20.3</testcontainers.version>
 
         <!-- transitive vulnerable dependencies -->
         <commons-compress>1.27.1</commons-compress>

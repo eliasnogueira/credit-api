@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.10] - 27-10-2024
+
+## Changed
+
+- Removed Lombok
+- Java 23 adoption
+- Updated the following libraries
+    - `spring-boot-starter-parent -> 3.3.5`
+    - `jib-maven-plugin -> 3.4.4`
+    - `junit -> 5.11.3`
+    - `datafaker -> 2.4.1`
+    - `testcontainers -> 1.20.3`
+
 ## [1.3.10] - 16-10-2024
 
 ## Changed
