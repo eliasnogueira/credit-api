@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Elias Nogueira
+ * Copyright (c) 2024 Elias Nogueira
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,54 +24,54 @@
 
 package com.eliasnogueira.credit.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import java.math.BigDecimal;
 
-@Entity
-public class Restriction {
+public class SimulationBuilder {
 
-    @Id
-    @GeneratedValue
     private Long id;
-
+    private String name;
     private String cpf;
+    private String email;
+    private BigDecimal amount;
+    private Integer installments;
+    private Boolean insurance;
 
-    private String type;
-
-    public Restriction(String cpf, String type) {
-        this.cpf = cpf;
-        this.type = type;
-    }
-
-    public Restriction() {
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public String getCpf() {
-        return this.cpf;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setId(Long id) {
+    public SimulationBuilder id(Long id) {
         this.id = id;
+        return this;
     }
 
-    public void setCpf(String cpf) {
+    public SimulationBuilder name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public SimulationBuilder cpf(String cpf) {
         this.cpf = cpf;
+        return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public SimulationBuilder email(String email) {
+        this.email = email;
+        return this;
     }
 
-    public String toString() {
-        return "Restriction(id=" + this.getId() + ", cpf=" + this.getCpf() + ", type=" + this.getType() + ")";
+    public SimulationBuilder amount(BigDecimal amount) {
+        this.amount = amount;
+        return this;
+    }
+
+    public SimulationBuilder installments(Integer installments) {
+        this.installments = installments;
+        return this;
+    }
+
+    public SimulationBuilder insurance(Boolean insurance) {
+        this.insurance = insurance;
+        return this;
+    }
+
+    public Simulation build() {
+        return new Simulation(id, name, cpf, email, amount, installments, insurance);
     }
 }
