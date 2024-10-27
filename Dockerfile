@@ -1,4 +1,4 @@
-FROM amazoncorretto:22-alpine-jdk
+FROM amazoncorretto:23-alpine-jdk
 EXPOSE 8080
 ARG JAR_FILE=target/*.jar
 ADD ${JAR_FILE} app.jar
