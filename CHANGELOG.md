@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.12] - 13-10-2024
+
+## Changed
+
+- Updated the following libraries
+  - `maven-surefire-plugin -> 3.5.2`
+  - `hibernate-jpamodelgen -> 6.6.2.Final`
+
+## [1.3.10] - 16-10-2024
+
 ## [1.3.10] - 27-10-2024
 
 ## Changed
