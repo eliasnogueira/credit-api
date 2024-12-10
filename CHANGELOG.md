@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.3.12] - 10-12-2024
 
 ### Changed
+
 - Updated the following libraries
     - `spring-boot-starter-parent -> 3.4.0`
     - `maven-surefire-junit5-tree-reporter -> 1.4.0`
