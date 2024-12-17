@@ -36,8 +36,9 @@
         <jakarta-xml-bind-api.version>4.0.2</jakarta-xml-bind-api.version>
         <h2.version>2.3.232</h2.version>
         <jib-maven-plugin.version>3.4.4</jib-maven-plugin.version>
+        <jib.image>eclipse-temurin:23.0.1_11-jre-nanoserver-ltsc2022</jib.image>
 
-        <junit.version>5.11.3</junit.version>
+        <junit.version>5.11.4</junit.version>
         <restassured.version>5.5.0</restassured.version>
         <assertj.version>3.26.3</assertj.version>
         <datafaker.version>2.4.2</datafaker.version>
@@ -208,7 +209,7 @@
                 <version>${jib-maven-plugin.version}</version>
                 <configuration>
                     <from>
-                        <image>eclipse-temurin:22_36-jre-alpine</image>
+                        <image>${jib.image}</image>
                     </from>
                     <to>
                         <image>eliasnogueira/${project.name}:${project.version}</image>
