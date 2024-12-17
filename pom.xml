@@ -12,7 +12,7 @@
 
     <groupId>com.eliasogueira.credit</groupId>
     <artifactId>combined-credit-api</artifactId>
-    <version>1.13.14</version>
+    <version>1.13.15</version>
 
     <distributionManagement>
         <repository>
@@ -36,7 +36,7 @@
         <jakarta-xml-bind-api.version>4.0.2</jakarta-xml-bind-api.version>
         <h2.version>2.3.232</h2.version>
         <jib-maven-plugin.version>3.4.4</jib-maven-plugin.version>
-        <jib.image>eclipse-temurin:23.0.1_11-jre-nanoserver-ltsc2022</jib.image>
+        <jib.image>eclipse-temurin:23-jdk-alpine</jib.image>
 
         <junit.version>5.11.4</junit.version>
         <restassured.version>5.5.0</restassured.version>
