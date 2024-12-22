@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.0</version>
+        <version>3.4.1</version>
     </parent>
 
     <groupId>com.eliasogueira.credit</groupId>
     <artifactId>combined-credit-api</artifactId>
-    <version>1.13.15</version>
+    <version>1.13.16</version>
 
     <distributionManagement>
         <repository>
@@ -32,7 +32,7 @@
         <springdoc-openapi-starter-webmvc-ui.version>2.7.0</springdoc-openapi-starter-webmvc-ui.version>
         <modelmapper.version>3.2.2</modelmapper.version>
         <lombok.version>1.18.36</lombok.version>
-        <hibernate-jpamodelgen.version>6.6.3.Final</hibernate-jpamodelgen.version>
+        <hibernate-jpamodelgen.version>6.6.4.Final</hibernate-jpamodelgen.version>
         <jakarta-xml-bind-api.version>4.0.2</jakarta-xml-bind-api.version>
         <h2.version>2.3.232</h2.version>
         <jib-maven-plugin.version>3.4.4</jib-maven-plugin.version>
@@ -40,12 +40,13 @@
 
         <junit.version>5.11.4</junit.version>
         <restassured.version>5.5.0</restassured.version>
-        <assertj.version>3.26.3</assertj.version>
+        <assertj.version>3.27.0</assertj.version>
         <datafaker.version>2.4.2</datafaker.version>
         <testcontainers.version>1.20.4</testcontainers.version>
 
         <!-- transitive vulnerable dependencies -->
-        <commons-compress>1.27.1</commons-compress>
+        <logback-core.version>1.5.15</logback-core.version>
+        <spring-webmvc.version>6.2.1</spring-webmvc.version>
 
         <start-class>com.eliasnogueira.credit.CreditApiApplication</start-class>
     </properties>
@@ -54,6 +55,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>ch.qos.logback</groupId>-->
+<!--                    <artifactId>logback-core</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
         </dependency>
 
         <dependency>
@@ -74,12 +81,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.xmlunit</groupId>
-                    <artifactId>xmlunit-core</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
@@ -177,13 +178,6 @@
                     <artifactId>commons-compress</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-
-        <!-- transitive vulnerable dependency for testcontainers -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-compress</artifactId>
-            <version>${commons-compress}</version>
         </dependency>
     </dependencies>
 

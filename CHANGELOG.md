@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.16] - 22-12-2024
+
+### Changed
+
+- Updated the following libraries
+    - `spring-boot-starter-parent -> 3.4.1`
+    - `hibernate-jpamodelgen -> 6.6.4.Final`
+    - `assertj -> 3.27.0`
+
 ## [1.3.15] - 17-12-2024
 
 ### Changed
@@ -16,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Updated the following libraries
-    -  `junit.version -> 5.11.4`
+    - `junit.version -> 5.11.4`
     - Jib image to `eclipse-temurin:23.0.1_11-jre-nanoserver-ltsc2022`
 
 ## [1.3.13] - 10-12-2024
@@ -38,8 +47,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Updated the following libraries
-  - `maven-surefire-plugin -> 3.5.2`
-  - `hibernate-jpamodelgen -> 6.6.2.Final`
+    - `maven-surefire-plugin -> 3.5.2`
+    - `hibernate-jpamodelgen -> 6.6.2.Final`
 
 ## [1.3.10] - 27-10-2024
 
