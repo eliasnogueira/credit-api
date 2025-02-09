@@ -30,9 +30,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.testcontainers.utility.TestcontainersConfiguration;
 
 import static io.restassured.RestAssured.config;
 import static io.restassured.config.JsonConfig.jsonConfig;
@@ -41,6 +43,7 @@ import static io.restassured.config.RestAssuredConfig.newConfig;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @TestPropertySource("/application-test.properties")
 @ActiveProfiles("test")
+@Import(TestcontainersConfiguration.class)
 @ExtendWith(SpringExtension.class)
 public abstract class BaseAPI {
 
