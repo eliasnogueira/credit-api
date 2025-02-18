@@ -39,7 +39,7 @@
         <jib.image>eclipse-temurin:23-jdk-alpine</jib.image>
 
         <junit.version>5.11.4</junit.version>
-        <restassured.version>5.5.0</restassured.version>
+        <restassured.version>5.5.1</restassured.version>
         <assertj.version>3.27.3</assertj.version>
         <datafaker.version>2.4.2</datafaker.version>
         <testcontainers.version>1.20.4</testcontainers.version>
