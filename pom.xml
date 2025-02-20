@@ -42,7 +42,7 @@
         <restassured.version>5.5.0</restassured.version>
         <assertj.version>3.27.3</assertj.version>
         <datafaker.version>2.4.2</datafaker.version>
-        <testcontainers.version>1.20.4</testcontainers.version>
+        <testcontainers.version>1.20.5</testcontainers.version>
 
         <!-- transitive vulnerable dependencies -->
         <logback-core.version>1.5.15</logback-core.version>
