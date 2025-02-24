@@ -38,7 +38,7 @@
         <jib-maven-plugin.version>3.4.4</jib-maven-plugin.version>
         <jib.image>eclipse-temurin:23-jdk-alpine</jib.image>
 
-        <junit.version>5.11.4</junit.version>
+        <junit.version>5.12.0</junit.version>
         <restassured.version>5.5.0</restassured.version>
         <assertj.version>3.27.3</assertj.version>
         <datafaker.version>2.4.2</datafaker.version>
