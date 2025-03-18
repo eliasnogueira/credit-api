@@ -35,7 +35,7 @@
         <hibernate-jpamodelgen.version>6.6.4.Final</hibernate-jpamodelgen.version>
         <jakarta-xml-bind-api.version>4.0.2</jakarta-xml-bind-api.version>
         <h2.version>2.3.232</h2.version>
-        <jib-maven-plugin.version>3.4.4</jib-maven-plugin.version>
+        <jib-maven-plugin.version>3.4.5</jib-maven-plugin.version>
         <jib.image>eclipse-temurin:23-jdk-alpine</jib.image>
 
         <junit.version>5.11.4</junit.version>
