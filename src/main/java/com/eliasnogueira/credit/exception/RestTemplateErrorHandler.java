@@ -32,14 +32,9 @@ import java.io.IOException;
 @Component
 public class RestTemplateErrorHandler implements ResponseErrorHandler {
 
-    // ignoring when there's no restrictions 404 is returned
+    // ignoring when there are no restrictions, 404 is returned
     @Override
     public boolean hasError(ClientHttpResponse response) throws IOException {
         return response.getStatusCode().value() != 404;
-    }
-
-    @Override
-    public void handleError(ClientHttpResponse response) {
-        // do nothing
     }
 }
