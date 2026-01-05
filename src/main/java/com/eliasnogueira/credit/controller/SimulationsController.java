@@ -33,7 +33,7 @@ import com.eliasnogueira.credit.exception.SimulationException;
 import com.eliasnogueira.credit.repository.SimulationRepository;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
-import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.boot.restclient.RestTemplateBuilder;
 import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;

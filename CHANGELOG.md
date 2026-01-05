@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 05-01-2026
+
+### Changed
+
+- Updated the following libraries
+  - `spring-boot-starter-parent -> 4.0.1`
+  - `java -> 25`
+  - `maven-compiler-plugin -> 3.14.1`
+  - `maven-surefire-plugin -> 3.5.4`
+  - `springdoc-openapi-starter-webmvc-ui -> 3.0.1`
+  - `modelmapper -> 3.2.6`
+  - `lombok -> 1.18.42`
+  - `hibernate-jpamodelgen -> 7.2.0.Final`
+  - `jakarta-xml-bind-api -> 4.0.4`
+  - `h2 -> 2.4.240`
+  - `junit -> 6.0.1`
+  - `restassured -> 6.0.0`
+  - `assertj -> 3.27.6`
+  - `datafaker -> 2.5.3`
+  - `testcontainers -> 2.0.3`
+- Fixed `RestTemplateBuilder` resolution by correcting the Spring Boot parent version
+
+
 ## [1.3.18] - 09-02-2025
 
 ### Changed

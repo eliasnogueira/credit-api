@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.1</version>
+        <version>4.0.1</version>
     </parent>
 
     <groupId>com.eliasogueira.credit</groupId>
     <artifactId>combined-credit-api</artifactId>
-    <version>1.13.18</version>
+    <version>2.0.0</version>
 
     <distributionManagement>
         <repository>
@@ -23,26 +23,26 @@
     </distributionManagement>
 
     <properties>
-        <java.version>23</java.version>
-        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+        <java.version>25</java.version>
+        <maven-compiler-plugin.version>3.14.1</maven-compiler-plugin.version>
         <maven.compiler.proc>full</maven.compiler.proc>
-        <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
-        <maven-surefire-junit5-tree-reporter.version>1.4.0</maven-surefire-junit5-tree-reporter.version>
+        <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
+        <maven-surefire-junit5-tree-reporter.version>1.5.1</maven-surefire-junit5-tree-reporter.version>
 
-        <springdoc-openapi-starter-webmvc-ui.version>2.8.4</springdoc-openapi-starter-webmvc-ui.version>
-        <modelmapper.version>3.2.2</modelmapper.version>
-        <lombok.version>1.18.36</lombok.version>
-        <hibernate-jpamodelgen.version>6.6.4.Final</hibernate-jpamodelgen.version>
-        <jakarta-xml-bind-api.version>4.0.2</jakarta-xml-bind-api.version>
-        <h2.version>2.3.232</h2.version>
-        <jib-maven-plugin.version>3.4.4</jib-maven-plugin.version>
-        <jib.image>eclipse-temurin:23-jdk-alpine</jib.image>
+        <springdoc-openapi-starter-webmvc-ui.version>3.0.1</springdoc-openapi-starter-webmvc-ui.version>
+        <modelmapper.version>3.2.6</modelmapper.version>
+        <lombok.version>1.18.42</lombok.version>
+        <hibernate-processor.version>7.2.0.Final</hibernate-processor.version>
+        <jakarta-xml-bind-api.version>4.0.4</jakarta-xml-bind-api.version>
+        <h2.version>2.4.240</h2.version>
+        <jib-maven-plugin.version>3.5.1</jib-maven-plugin.version>
+        <jib.image>eclipse-temurin:25-jdk-alpine</jib.image>
 
-        <junit.version>5.11.4</junit.version>
-        <restassured.version>5.5.0</restassured.version>
-        <assertj.version>3.27.3</assertj.version>
-        <datafaker.version>2.4.2</datafaker.version>
-        <testcontainers.version>1.20.4</testcontainers.version>
+        <junit.version>6.0.1</junit.version>
+        <restassured.version>6.0.0</restassured.version>
+        <assertj.version>3.27.6</assertj.version>
+        <datafaker.version>2.5.3</datafaker.version>
+        <testcontainers.version>2.0.3</testcontainers.version>
 
         <!-- transitive vulnerable dependencies -->
         <logback-core.version>1.5.15</logback-core.version>
@@ -80,6 +80,11 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-restclient</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
@@ -113,8 +118,8 @@
 
         <dependency>
             <groupId>org.hibernate.orm</groupId>
-            <artifactId>hibernate-jpamodelgen</artifactId>
-            <version>${hibernate-jpamodelgen.version}</version>
+            <artifactId>hibernate-processor</artifactId>
+            <version>${hibernate-processor.version}</version>
         </dependency>
 
         <dependency>
