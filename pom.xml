@@ -40,7 +40,7 @@
 
         <junit.version>6.0.1</junit.version>
         <restassured.version>6.0.0</restassured.version>
-        <assertj.version>3.27.6</assertj.version>
+        <assertj.version>3.27.7</assertj.version>
         <datafaker.version>2.5.3</datafaker.version>
         <testcontainers.version>2.0.3</testcontainers.version>
 
