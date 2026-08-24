@@ -36,8 +36,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface SimulationRepository extends JpaRepository<Simulation, Long>, JpaSpecificationExecutor<Simulation> {
 
-    Optional<Simulation> findByCpf(@Param("cpf") String cpf);
+    Optional<Simulation> findByCpf(String cpf);
+
+    boolean existsByCpf(String cpf);
 
     @Transactional
-    void deleteByCpf(@Param("cpf") String cpf);
+    void deleteByCpf(String cpf);
 }

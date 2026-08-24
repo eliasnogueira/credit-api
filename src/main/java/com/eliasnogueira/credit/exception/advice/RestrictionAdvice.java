@@ -26,6 +26,7 @@ package com.eliasnogueira.credit.exception.advice;
 
 import com.eliasnogueira.credit.dto.v1.MessageDto;
 import com.eliasnogueira.credit.exception.v2.RestrictionException;
+import com.eliasnogueira.credit.exception.RestrictionFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -34,6 +35,13 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
 public class RestrictionAdvice {
+
+    @ResponseBody
+    @ExceptionHandler(RestrictionFoundException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    MessageDto restrictionFound(RestrictionFoundException e) {
+        return new MessageDto(e.getMessage());
+    }
 
     @ResponseBody
     @ExceptionHandler(com.eliasnogueira.credit.exception.v1.RestrictionException.class)

@@ -30,7 +30,7 @@ import com.eliasnogueira.credit.service.RestrictionService;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 
-@Service("restrictionService")
+@Service
 public class RestrictionServiceImpl implements RestrictionService {
 
     private final RestrictionRepository repository;

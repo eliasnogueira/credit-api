@@ -26,9 +26,15 @@ package com.eliasnogueira.credit;
 import io.restassured.RestAssured;
 import io.restassured.config.SSLConfig;
 import io.restassured.path.json.config.JsonPathConfig.NumberReturnType;
+import com.eliasnogueira.credit.entity.Restriction;
+import com.eliasnogueira.credit.entity.SimulationBuilder;
+import com.eliasnogueira.credit.entity.Type;
+import com.eliasnogueira.credit.repository.RestrictionRepository;
+import com.eliasnogueira.credit.repository.SimulationRepository;
+import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
@@ -38,26 +44,48 @@ import static io.restassured.RestAssured.config;
 import static io.restassured.config.JsonConfig.jsonConfig;
 import static io.restassured.config.RestAssuredConfig.newConfig;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource("/application-test.properties")
 @ActiveProfiles("test")
 @ExtendWith(SpringExtension.class)
 public abstract class BaseAPI {
 
-    @Value("${credit-api.test.base-uri}")
-    private String baseURI;
+    private String baseURI = "http://localhost";
 
-    @Value("${credit-api.test.base-path}")
-    private String basePath;
+    private String basePath = "/api/v1";
 
-    @Value("${credit-api.test.port}")
-    private int port;
+    @LocalServerPort
+    protected int port;
+
+    @Autowired
+    private RestrictionRepository restrictionRepository;
+
+    @Autowired
+    private SimulationRepository simulationRepository;
 
     /*
      * This is done using @BeforeEach instead of @BeforeAll because Spring does not support the @Value for static fields
      */
     @BeforeEach
-    void beforeAllTests() {
+    void beforeEachTest() {
+        simulationRepository.deleteAll();
+        restrictionRepository.deleteAll();
+        restrictionRepository.save(new Restriction("97093236014", Type.JUDICIAL_ISSUE.get()));
+        restrictionRepository.save(new Restriction("60094146012", Type.CREDIT_CARD.get()));
+        restrictionRepository.save(new Restriction("84809766080", Type.BANKING.get()));
+        restrictionRepository.save(new Restriction("62648716050", Type.CREDIT_SCORE.get()));
+        restrictionRepository.save(new Restriction("26276298085", Type.CREDIT_SCORE.get()));
+        restrictionRepository.save(new Restriction("01317496094", Type.CREDIT_CARD.get()));
+        restrictionRepository.save(new Restriction("55856777050", Type.BANKING.get()));
+        restrictionRepository.save(new Restriction("19626829001", Type.JUDICIAL_ISSUE.get()));
+        restrictionRepository.save(new Restriction("24094592008", Type.BANKING.get()));
+        restrictionRepository.save(new Restriction("58063164083", Type.BANKING.get()));
+        simulationRepository.save(new SimulationBuilder().cpf("66414919004").name("Tom")
+                .email("tom@gmail.com").amount(new java.math.BigDecimal("11000"))
+                .installments(3).insurance(true).build());
+        simulationRepository.save(new SimulationBuilder().cpf("17822386034").name("John")
+                .email("john@gmail.com").amount(new java.math.BigDecimal("20000"))
+                .installments(5).insurance(false).build());
         RestAssured.baseURI = baseURI;
         RestAssured.basePath = basePath;
         RestAssured.port = port;

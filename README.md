@@ -10,9 +10,9 @@ It's a combination of the following projects to facilitate the test automation:
 
 # Required software
 
-* Java JDK 23+
+* Java JDK 25+
     * you can change the `java.version` property in the `pom.xml` file to `17` as this project is not using any specific
-      Java 23 feature
+      Java 25 feature
 
 # About the API
 

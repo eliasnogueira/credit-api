@@ -5,38 +5,41 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Set up JDK 25
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
-          distribution: oracle
+          distribution: temurin
           java-version: 25
 
       - name: Cache Maven packages
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Build
-        run: mvn -q clean compile
-
       - name: Test
-        run: mvn test
+        run: ./mvnw -q test
 
       - name: Publish artifact on GitHub Packages
-        run: mvn -q deploy -DskipTests
+        run: ./mvnw -q deploy -DskipTests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish Docker image
+      - name: Publish Docker image to GitHub Container Registry
         run: |
-          mvn compile jib:build \
+          ./mvnw -q compile jib:build \
+            -Djib.to.image=ghcr.io/${{ github.repository_owner }}/credit-api \
+            -Djib.to.tags=${{ github.sha }},latest \
             -Djib.to.auth.username=${{ github.actor }} \
-            -Djib.to.auth.password=${{ secrets.DOCKER_ACCESS_TOKEN }}
+            -Djib.to.auth.password=${{ secrets.GITHUB_TOKEN }}
