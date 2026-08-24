@@ -5,6 +5,42 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 24-08-2026
+
+### Added
+
+- Added a `SimulationService` layer to keep business logic outside the controller.
+- Added `SimulationResponseDto` so persistence entities are not exposed directly by the API.
+- Added a shared `ModelMapper` configuration bean.
+- Added deterministic database fixtures for integration tests.
+- Added GitHub Actions publishing of Docker images to GitHub Container Registry using Jib.
+- Docker images are tagged with both the commit SHA and `latest`.
+
+### Changed
+
+- Updated Spring Boot to `4.1.1`.
+- Updated Java and the Docker base image to Java 25.
+- Updated Maven Compiler Plugin to `3.15.0`.
+- Updated Maven Surefire Plugin to `3.5.6`.
+- Updated the Maven Wrapper to `3.3.4` with Maven `3.9.16`.
+- Updated SpringDoc, Lombok, JUnit, Rest Assured, AssertJ, DataFaker, H2, and Jib versions.
+- Updated the documented and configured runtime Java version to 25.
+- Removed obsolete dependency overrides for transitive vulnerable libraries.
+- Changed integration tests to use random ports and reset their database fixtures before each test.
+- Added validation to simulation update requests.
+- Replaced the internal HTTP restriction check with a direct service call.
+- Updated the Dockerfile to expose application port `8088`.
+- Updated the merge-to-main workflow to use the Maven wrapper, Ubuntu runners, and GHCR authentication.
+- Removed redundant trailing-slash dependence from simulation endpoints.
+
+### Removed
+
+- Removed unused `hibernate-processor`.
+- Removed unused `jakarta.xml.bind-api`.
+- Removed unused `rest-assured-all`.
+- Removed unused `testcontainers`.
+- Removed the unused Spring Boot RestClient starter and `RestTemplateErrorHandler`.
+
 ## [2.0.0] - 05-01-2026
 
 ### Changed

@@ -48,7 +48,6 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class SimulationsIntegrationTest extends BaseAPI {
 
     /*
@@ -140,7 +139,7 @@ class SimulationsIntegrationTest extends BaseAPI {
         then().
             statusCode(SC_CREATED).
             header("Location",
-                    equalTo("http://localhost:8088/api/v1/simulations/" + simulation.getCpf()));
+                    equalTo("http://localhost:" + port + "/api/v1/simulations/" + simulation.getCpf()));
     }
     
     @ParameterizedTest(name = "Scenario: {2}")

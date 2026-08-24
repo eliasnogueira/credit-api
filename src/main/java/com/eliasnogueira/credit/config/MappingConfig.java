@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2023 Elias Nogueira
+ * Copyright (c) 2026 Elias Nogueira
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,20 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.eliasnogueira.credit.exception;
+package com.eliasnogueira.credit.config;
 
-import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.stereotype.Component;
-import org.springframework.web.client.ResponseErrorHandler;
+import org.modelmapper.ModelMapper;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-import java.io.IOException;
-
-@Component
-public class RestTemplateErrorHandler implements ResponseErrorHandler {
-
-    // ignoring when there are no restrictions, 404 is returned
-    @Override
-    public boolean hasError(ClientHttpResponse response) throws IOException {
-        return response.getStatusCode().value() != 404;
+@Configuration
+public class MappingConfig {
+    @Bean
+    ModelMapper modelMapper() {
+        return new ModelMapper();
     }
 }

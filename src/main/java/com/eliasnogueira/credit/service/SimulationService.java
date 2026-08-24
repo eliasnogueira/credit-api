@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) today.year Elias Nogueira
+ * Copyright (c) 2026 Elias Nogueira
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,25 +21,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package com.eliasnogueira.credit.service;
 
-package com.eliasnogueira.credit.repository;
+import com.eliasnogueira.credit.dto.SimulationDto;
+import com.eliasnogueira.credit.dto.SimulationResponseDto;
 
-import com.eliasnogueira.credit.entity.Simulation;
+import java.util.List;
 
-import java.util.Optional;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-
-@Repository
-public interface SimulationRepository extends JpaRepository<Simulation, Long>, JpaSpecificationExecutor<Simulation> {
-
-    Optional<Simulation> findByCpf(String cpf);
-
-    boolean existsByCpf(String cpf);
-
-    @Transactional
-    void deleteByCpf(String cpf);
+public interface SimulationService {
+    List<SimulationResponseDto> findAll(String name);
+    SimulationResponseDto findByCpf(String cpf);
+    void create(SimulationDto simulation);
+    SimulationResponseDto update(String cpf, SimulationDto simulation);
+    void delete(String cpf);
 }
