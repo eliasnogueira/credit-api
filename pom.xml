@@ -32,7 +32,7 @@
         <springdoc-openapi-starter-webmvc-ui.version>3.1.0</springdoc-openapi-starter-webmvc-ui.version>
         <modelmapper.version>3.2.6</modelmapper.version>
         <lombok.version>1.18.46</lombok.version>
-        <h2.version>2.4.240</h2.version>
+        <h2.version>2.5.250</h2.version>
         <jib-maven-plugin.version>3.5.2</jib-maven-plugin.version>
         <jib.image>eclipse-temurin:25-jdk-alpine</jib.image>
 
